@@ -88,6 +88,7 @@ PKG_CONFIG_LIBDIR=/usr/lib/arm-linux-gnueabihf/pkgconfig:/usr/share/pkgconfig \
 -no-sql-sqlite \
 -no-compile-examples \
 -no-feature-xlib \
+-no-feature-geoservices_mapboxgl \
 -no-xcb \
 -qt-pcre \
 -no-pch \
