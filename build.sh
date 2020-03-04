@@ -2,25 +2,39 @@
 QT_MAJOR_VERSION=5.13
 QT_MINOR_VERSION=1
 
-# fix broadcom opengl  library names without breaking anything else
-ln -sf /opt/vc/lib/libbrcmEGL.so /opt/vc/lib/libEGL.so
-ln -sf /opt/vc/lib/libEGL.so /opt/vc/lib/libEGL.so.1
-ln -sf /opt/vc/lib/libbrcmGLESv2.so /opt/vc/lib/libGLESv2.so
-ln -sf /opt/vc/lib/libbrcmGLESv2.so /opt/vc/lib/libGLESv2.so.2
-ln -sf /opt/vc/lib/libbrcmOpenVG.so /opt/vc/lib/libOpenVG.so
-ln -sf /opt/vc/lib/libbrcmWFC.so /opt/vc/lib/libWFC.so
+TYPE=$1
 
-ln -sf /opt/vc/lib/pkgconfig/brcmegl.pc    /opt/vc/lib/pkgconfig/egl.pc
-ln -sf /opt/vc/lib/pkgconfig/brcmglesv2.pc /opt/vc/lib/pkgconfig/glesv2.pc
-ln -sf /opt/vc/lib/pkgconfig/brcmvg.pc     /opt/vc/lib/pkgconfig/vg.pc
+if [ "$TYPE" == "" ]; then
+    TYPE="stretch"
+fi
 
+if [ "$TYPE" == "stretch" ]; then
+    PLATFORM="linux-rpi-g++"
+elif [ "$TYPE" == "buster" ]; then
+    PLATFORM="linux-rpi-vc4-g++"
+fi
+
+
+if [ "$TYPE" == "stretch" ]; then
+    # fix broadcom opengl  library names without breaking anything else
+    ln -sf /opt/vc/lib/libbrcmEGL.so /opt/vc/lib/libEGL.so
+    ln -sf /opt/vc/lib/libEGL.so /opt/vc/lib/libEGL.so.1
+    ln -sf /opt/vc/lib/libbrcmGLESv2.so /opt/vc/lib/libGLESv2.so
+    ln -sf /opt/vc/lib/libbrcmGLESv2.so /opt/vc/lib/libGLESv2.so.2
+    ln -sf /opt/vc/lib/libbrcmOpenVG.so /opt/vc/lib/libOpenVG.so
+    ln -sf /opt/vc/lib/libbrcmWFC.so /opt/vc/lib/libWFC.so
+
+    ln -sf /opt/vc/lib/pkgconfig/brcmegl.pc    /opt/vc/lib/pkgconfig/egl.pc
+    ln -sf /opt/vc/lib/pkgconfig/brcmglesv2.pc /opt/vc/lib/pkgconfig/glesv2.pc
+    ln -sf /opt/vc/lib/pkgconfig/brcmvg.pc     /opt/vc/lib/pkgconfig/vg.pc
+fi
 
 if [ ! -f qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}.tar.xz ]; then
         echo "Download Qt ${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}"
         wget http://download.qt.io/official_releases/qt/${QT_MAJOR_VERSION}/${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/single/qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}.tar.xz
 fi
 
-echo "Building Qt"
+echo "Building Qt for ${TYPE} (${PLATFORM})"
 
 # blow away the old directory to guarantee clean source state
 if [ -d qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION} ]; then
@@ -60,7 +74,7 @@ mkdir -p build
 
 cd build
 
-../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/configure -platform linux-rpi-g++ \
+../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/configure -platform ${PLATFORM} \
 -v \
 -opengl es2 -eglfs \
 -no-gtk \
