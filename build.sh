@@ -69,7 +69,6 @@ PKG_CONFIG_LIBDIR=/usr/lib/arm-linux-gnueabihf/pkgconfig:/usr/share/pkgconfig \
 -reduce-exports \
 -force-pkg-config \
 -nomake examples -no-compile-examples \
--skip qtcharts \
 -skip qtdatavis3d \
 -skip qtwayland \
 -skip qtwebengine \
