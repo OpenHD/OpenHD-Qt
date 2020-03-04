@@ -60,7 +60,6 @@ mkdir -p build
 
 cd build
 
-PKG_CONFIG_LIBDIR=/usr/lib/arm-linux-gnueabihf/pkgconfig:/usr/share/pkgconfig \
 ../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/configure -platform linux-rpi-g++ \
 -v \
 -opengl es2 -eglfs \
