@@ -99,7 +99,6 @@ cd build
 -no-feature-vnc \
 -no-compile-examples \
 -no-feature-xlib \
--no-feature-geoservices_mapboxgl \
 -no-xcb \
 -qt-pcre \
 -no-pch \
