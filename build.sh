@@ -63,7 +63,6 @@ libssl-dev \
 libpng-dev \
 libjpeg-dev \
 libglib2.0-dev \
-libraspberrypi-dev \
 libasound2-dev \
 pulseaudio libpulse-dev
 
