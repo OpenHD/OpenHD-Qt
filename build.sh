@@ -64,6 +64,8 @@ libpng-dev \
 libjpeg-dev \
 libglib2.0-dev \
 libasound2-dev \
+libxcb-xfixes0-dev \
+libdrm-dev \
 pulseaudio libpulse-dev
 
 
