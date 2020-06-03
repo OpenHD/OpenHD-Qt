@@ -115,17 +115,12 @@ cd build
 -system-freetype \
 -fontconfig \
 -glib \
--prefix /opt/Qt${QT_MAJOR_VERSION}.${QT_MINOR_VERSION} \
+-prefix /usr/local \
 -qpa eglfs
 
 make -j5
 
-mkdir -p debian/Qt${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}
-make install DESTDIR=debian/Qt${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}
-
-pushd debian
-tar -zcf Qt${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}.tar.gz Qt${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}
-popd
-
+mkdir -p ../debian/usr/local
+make install DESTDIR=../debian/usr/local
 
 cd ..
