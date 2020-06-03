@@ -66,7 +66,13 @@ libglib2.0-dev \
 libasound2-dev \
 libxcb-xfixes0-dev \
 libdrm-dev \
-pulseaudio libpulse-dev
+pulseaudio libpulse-dev \
+libspeechd-dev flite1-dev flite speech-dispatcher-flite \
+libdouble-conversion-dev \
+libudev-dev \
+libinput-dev \
+libts-dev \
+mtdev-tools
 
 
 rm -rf build
