@@ -43,9 +43,9 @@ fpm -a ${PACKAGE_ARCH} -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${TM
   -d "flite1-dev >= 2.0.0" \
   -d "flite >= 2.0.0" \
   -d "speech-dispatcher-flite >= 0.8.6" \
-  -d "libdouble-conversion >= 2.0" \
-  -d "libudev >= 0" \
-  -d "libinput >= 0" \
-  -d "libts >= 0" \
+  -d "libdouble-conversion1 >= 2.0" \
+  -d "libudev1 >= 0" \
+  -d "libinput10 >= 1.6.3" \
+  -d "libts-0.0-0 >= 1.0" \
   -d "mtdev-tools >= 0" || exit 1
 
