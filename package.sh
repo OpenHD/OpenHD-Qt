@@ -1,14 +1,17 @@
 #!/bin/bash
 
+PLATFORM=$1
+DISTRO=$2
 
-TYPE=$1
-
-if [ "$TYPE" == "" ]; then
-    TYPE="stretch"
+if [ "$PLATFORM" == "" ]; then
+    TYPE="pi"
+    DISTRO="stretch"
+    PACKAGE_ARCH="armhf"
 fi
 
 
-PACKAGE_NAME=qt-openhd-pi-${TYPE}
+
+PACKAGE_NAME=openhd-qt
 
 VERSION=$(git describe)
 
