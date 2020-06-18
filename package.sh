@@ -1,7 +1,5 @@
 #!/bin/bash
 
-QT_MAJOR_VERSION=5.15
-QT_MINOR_VERSION=0
 
 TYPE=$1
 
@@ -9,11 +7,6 @@ if [ "$TYPE" == "" ]; then
     TYPE="stretch"
 fi
 
-if [ "$TYPE" == "stretch" ]; then
-    PLATFORM="linux-rpi-g++"
-elif [ "$TYPE" == "buster" ]; then
-    PLATFORM="linux-rpi-vc4-g++"
-fi
 
 PACKAGE_NAME=qt-openhd-pi-${TYPE}
 
