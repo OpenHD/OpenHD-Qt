@@ -4,11 +4,15 @@ PLATFORM=$1
 DISTRO=$2
 
 if [ "$PLATFORM" == "" ]; then
-    TYPE="pi"
+    PLATFORM="pi"
     DISTRO="stretch"
-    PACKAGE_ARCH="armhf"
 fi
 
+if [[ "${PLATFORM}" == "pi" ]]; then
+    OS="raspbian"
+    ARCH="arm"
+    PACKAGE_ARCH="armhf"
+fi
 
 
 PACKAGE_NAME=openhd-qt
