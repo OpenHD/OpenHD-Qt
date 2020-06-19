@@ -27,7 +27,7 @@ fpm -a ${PACKAGE_ARCH} -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${TM
   -d "libfontconfig1 >= 2.11.0" \
   -d "libdbus-1-3 >= 1.10.28" \
   -d "libfreetype6 >= 2.6.3" \
-  -d "libicu57 >= 57.1" \
+  -d "libicu-dev >= 57.1" \
   -d "libinput-bin >= 1.6.3" \
   -d "libxkbcommon0 >= 0.7.1" \
   -d "libsqlite3-0 >= 3.16.2" \
@@ -46,6 +46,6 @@ fpm -a ${PACKAGE_ARCH} -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${TM
   -d "libdouble-conversion1 >= 2.0" \
   -d "libudev1 >= 0" \
   -d "libinput10 >= 1.6.3" \
-  -d "libts-0.0-0 >= 1.0" \
+  -d "libts-dev >= 1.0" \
   -d "mtdev-tools >= 0" || exit 1
 
