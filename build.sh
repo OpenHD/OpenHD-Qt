@@ -10,8 +10,10 @@ fi
 
 if [ "$TYPE" == "stretch" ]; then
     PLATFORM="linux-rpi-g++"
+    SSL_ARGS="-no-openssl"
 elif [ "$TYPE" == "buster" ]; then
     PLATFORM="linux-rpi-vc4-g++"
+    SSL_ARGS="-openssl"
 fi
 
 PACKAGE_NAME=openhd-qt
@@ -118,8 +120,7 @@ pushd build
 -no-feature-xlib \
 -no-xcb \
 -qt-pcre \
--no-pch \
--ssl \
+-no-pch ${SSL_ARGS} \
 -evdev \
 -system-freetype \
 -fontconfig \
