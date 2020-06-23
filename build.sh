@@ -124,8 +124,8 @@ pushd build
 -system-freetype \
 -fontconfig \
 -glib \
--prefix /usr/local \
--qpa eglfs
+-prefix /opt/Qt${QT_MAJOR_VERSION}.${QT_MINOR_VERSION} \
+-qpa eglfs || exit 1
 
 make -j5
 
