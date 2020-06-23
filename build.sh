@@ -14,6 +14,14 @@ elif [ "$TYPE" == "buster" ]; then
     PLATFORM="linux-rpi-vc4-g++"
 fi
 
+PACKAGE_NAME=openhd-qt
+
+TMPDIR=/tmp/${PACKAGE_NAME}-installdir
+
+mkdir -p ${TMPDIR}
+
+rm -r ${TMPDIR}/*
+
 
 if [ "$TYPE" == "stretch" ]; then
     # fix broadcom opengl  library names without breaking anything else
@@ -120,7 +128,6 @@ cd build
 
 make -j5
 
-mkdir -p ../debian/usr/local
-make install DESTDIR=../debian/usr/local
+make install DESTDIR=${TMPDIR} || exit 1
 
 cd ..
