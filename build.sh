@@ -54,8 +54,9 @@ tar xvf qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}.tar.xz
 rm -r qt-raspberrypi-configuration
 git clone https://github.com/oniongarlic/qt-raspberrypi-configuration.git
 
-cd qt-raspberrypi-configuration && make install DESTDIR=../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}
-cd ..
+pushd qt-raspberrypi-configuration
+make install DESTDIR=../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}
+popd
 
 apt-get update
 
@@ -87,7 +88,7 @@ rm -rf build
 
 mkdir -p build
 
-cd build
+pushd build
 
 ../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/configure -platform ${PLATFORM} \
 -v \
@@ -130,4 +131,4 @@ make -j5
 
 make install DESTDIR=${TMPDIR} || exit 1
 
-cd ..
+popd
