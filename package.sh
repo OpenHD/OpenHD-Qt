@@ -43,6 +43,7 @@ fpm -a ${PACKAGE_ARCH} -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${TM
   -d "libdrm2 >= 2.4.74" \
   -d "pulseaudio >= 10.0" \
   -d "libpulse0 >= 10.0" \
+  -d "libpulse-mainloop-glib0 >= 10.0" \
   -d "libspeechd-dev >= 0.8.6" \
   -d "flite1-dev >= 2.0.0" \
   -d "flite >= 2.0.0" \
