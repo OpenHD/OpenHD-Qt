@@ -45,7 +45,7 @@ fpm -a ${PACKAGE_ARCH} -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${TM
   -d "libxkbcommon0 >= 0.7.1" \
   -d "libsqlite3-0 >= 3.16.2" \
   -d "libpng16-16 >= 1.6.28" \
-  -d "libjpeg8 > 0" \
+  -d "libjpeg62-turbo > 0" \
   -d "libglib2.0-0 >= 2.50.3" \
   -d "libasound2 >= 1.1.3" \
   -d "libxcb-xfixes0 >= 1.12" \

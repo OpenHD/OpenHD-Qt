@@ -72,7 +72,7 @@ libxkbcommon-dev \
 libsqlite3-dev \
 libssl-dev \
 libpng-dev \
-libjpeg8-dev \
+libjpeg-dev \
 libglib2.0-dev \
 libasound2-dev \
 libxcb-xfixes0-dev \
