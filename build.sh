@@ -63,28 +63,31 @@ popd
 apt-get update
 
 apt-get install build-essential \
-libfontconfig1-dev \
+flite \
+flite1-dev \
+libasound2-dev \
 libdbus-1-dev \
+libdouble-conversion-dev \
+libdrm-dev \
+libfontconfig1-dev \
 libfreetype6-dev \
+libglib2.0-dev \
 libicu-dev \
 libinput-dev \
-libxkbcommon-dev \
+libjpeg-dev \
+libnss3-dev \
+libpng-dev \
+libpulse-dev \
+libspeechd-dev  \
 libsqlite3-dev \
 libssl-dev \
-libpng-dev \
-libjpeg-dev \
-libglib2.0-dev \
-libasound2-dev \
-libxcb-xfixes0-dev \
-libdrm-dev \
-pulseaudio libpulse-dev \
-libspeechd-dev flite1-dev flite speech-dispatcher-flite \
-libdouble-conversion-dev \
-libudev-dev \
-libinput-dev \
 libts-dev \
+libudev-dev \
 mtdev-tools \
-libnss3-dev
+pulseaudio \
+speech-dispatcher-flite \
+libxcb-xfixes0-dev \
+libxkbcommon-dev
 
 
 rm -rf build
