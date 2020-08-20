@@ -69,8 +69,11 @@ libasound2-dev \
 libdbus-1-dev \
 libdouble-conversion-dev \
 libdrm-dev \
+libegl1-mesa-dev \
 libfontconfig1-dev \
 libfreetype6-dev \
+libgbm-dev \
+libgles2-mesa-dev \
 libglib2.0-dev \
 libicu-dev \
 libinput-dev \
