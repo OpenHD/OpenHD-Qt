@@ -131,6 +131,6 @@ pushd build
 
 make -j3 || exit 1
 
-make install DESTDIR=${TMPDIR} || exit 1
+INSTALL_ROOT=${TMPDIR} make install || exit 1
 
 popd
