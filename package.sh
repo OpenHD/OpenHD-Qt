@@ -36,6 +36,7 @@ fpm -a ${PACKAGE_ARCH} -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${TM
   -p ${PACKAGE_NAME}_VERSION_ARCH.deb \
   -d "libegl1-mesa >= 13.0.6" \
   -d "libgles2-mesa >= 13.0.6" \
+  -d "libnss3" \
   -d "libgbm1 >= 13.0.6" \
   -d "libfontconfig1 >= 2.11.0" \
   -d "libdbus-1-3 >= 1.10.28" \

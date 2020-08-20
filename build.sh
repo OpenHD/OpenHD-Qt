@@ -83,7 +83,8 @@ libdouble-conversion-dev \
 libudev-dev \
 libinput-dev \
 libts-dev \
-mtdev-tools
+mtdev-tools \
+libnss3-dev
 
 
 rm -rf build
