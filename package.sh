@@ -58,7 +58,7 @@ fpm -a ${PACKAGE_ARCH} -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${TM
   -d "libsqlite3-0 >= 3.16.2" \
   -d "libts-dev >= 1.0" \
   -d "libudev1 >= 0" \
-  -d "mtdev-tools >= 0"
+  -d "mtdev-tools >= 0" \
   -d "pulseaudio >= 10.0" \
   -d "speech-dispatcher-flite >= 0.8.6" \
   -d "libxcb-xfixes0 >= 1.12" \
