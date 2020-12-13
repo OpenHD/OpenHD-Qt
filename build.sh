@@ -58,7 +58,7 @@ fi
 tar xvf qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}.tar.xz || exit 1
 
 if [ ! -f qt-raspberrypi-configuration ]; then
-    git clone https://github.com/oniongarlic/qt-raspberrypi-configuration.git
+    git clone https://github.com/OpenHD/qt-raspberrypi-configuration.git
 fi
 
 pushd qt-raspberrypi-configuration
