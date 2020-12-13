@@ -15,6 +15,12 @@ if [[ "${PLATFORM}" == "pi" ]]; then
     PACKAGE_ARCH="armhf"
 fi
 
+if [[ "${PLATFORM}" == "jetson-nano" ]]; then
+    OS="ubuntu"
+    ARCH="arm64"
+    PACKAGE_ARCH="arm64"
+fi
+
 if [ "${BUILD_TYPE}" == "docker" ]; then
     cat << EOF > /etc/resolv.conf
 options rotate
@@ -24,7 +30,7 @@ nameserver 8.8.4.4
 EOF
 fi
 
-PACKAGE_NAME=openhd-qt
+PACKAGE_NAME=openhd-qt-${PLATFORM}
 
 TMPDIR=/tmp/${PACKAGE_NAME}-installdir
 

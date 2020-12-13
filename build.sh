@@ -5,18 +5,22 @@ QT_MINOR_VERSION=0
 TYPE=$1
 
 if [ "$TYPE" == "" ]; then
-    TYPE="stretch"
+    echo "Missing build type: pi-stretch, pi-buster, jetson-nano"
+    exit 1
 fi
 
-if [ "$TYPE" == "stretch" ]; then
+if [ "$TYPE" == "pi-stretch" ]; then
     PLATFORM="linux-rpi-g++"
     SSL_ARGS="-no-openssl"
-elif [ "$TYPE" == "buster" ]; then
+elif [ "$TYPE" == "pi-buster" ]; then
     PLATFORM="linux-rpi-vc4-g++"
+    SSL_ARGS="-openssl"
+elif [ "$TYPE" == "jetson-nano" ]; then
+    PLATFORM="linux-jetson-nano-g++"
     SSL_ARGS="-openssl"
 fi
 
-PACKAGE_NAME=openhd-qt
+PACKAGE_NAME=openhd-qt-${TYPE}
 
 TMPDIR=/tmp/${PACKAGE_NAME}-installdir
 
@@ -25,7 +29,7 @@ mkdir -p ${TMPDIR}
 rm -r ${TMPDIR}/*
 
 
-if [ "$TYPE" == "stretch" ]; then
+if [ "$TYPE" == "pi-stretch" ]; then
     # fix broadcom opengl  library names without breaking anything else
     ln -sf /opt/vc/lib/libbrcmEGL.so /opt/vc/lib/libEGL.so
     ln -sf /opt/vc/lib/libEGL.so /opt/vc/lib/libEGL.so.1
