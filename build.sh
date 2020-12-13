@@ -57,8 +57,9 @@ fi
 
 tar xvf qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}.tar.xz || exit 1
 
-rm -r qt-raspberrypi-configuration
-git clone https://github.com/oniongarlic/qt-raspberrypi-configuration.git
+if [ ! -f qt-raspberrypi-configuration ]; then
+    git clone https://github.com/oniongarlic/qt-raspberrypi-configuration.git
+fi
 
 pushd qt-raspberrypi-configuration
 make install DESTDIR=../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}
