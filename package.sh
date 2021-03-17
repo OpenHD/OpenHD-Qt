@@ -55,7 +55,7 @@ fpm -a ${PACKAGE_ARCH} -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${TM
   -d "libicu-dev >= 57.1" \
   -d "libinput-bin >= 1.6.3" \
   -d "libinput10 >= 1.6.3" \
-  -d "libjpeg62-turbo > 0" \
+  -d "libjpeg-dev > 0" \
   -d "libnss3" \
   -d "libpng16-16 >= 1.6.28" \
   -d "libpulse0 >= 10.0" \
