@@ -1,6 +1,6 @@
 # qt-raspberrypi
 
-Qt builds for Raspberry Pi with EGLFS enabled
+Qt builds for Raspberry Pi with EGLFS enabled.
 
 
 Note: this script must be run on a Raspberry Pi running Raspbian Stretch, or from
