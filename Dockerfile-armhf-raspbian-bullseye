@@ -4,7 +4,7 @@ COPY .git /data/.git/
 
 COPY . /data/
 
-RUN apt-get update --allow-releaseinfo-change
+RUN apt update
 
 WORKDIR /data
 
