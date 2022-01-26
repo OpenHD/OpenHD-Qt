@@ -45,7 +45,7 @@ fpm -a ${PACKAGE_ARCH} -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${TM
   -d "flite1-dev >= 2.0.0" \
   -d "libasound2 >= 1.1.3" \
   -d "libdbus-1-3 >= 1.10.28" \
-  -d "libdouble-conversion1 >= 2.0" \
+  -d "libdouble-conversion3" \
   -d "libdrm2 >= 2.4.74" \
   -d "libegl1-mesa >= 13.0.6" \
   -d "libfontconfig1 >= 2.11.0" \
