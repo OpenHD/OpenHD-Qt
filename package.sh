@@ -46,6 +46,7 @@ fpm -a ${PACKAGE_ARCH} -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${TM
   -d "libasound2 >= 1.1.3" \
   -d "libdbus-1-3 >= 1.10.28" \
   -d "libdouble-conversion3" \
+  -d "libdouble-conversion1" \
   -d "libdrm2 >= 2.4.74" \
   -d "libegl1-mesa >= 13.0.6" \
   -d "libfontconfig1 >= 2.11.0" \
@@ -54,6 +55,7 @@ fpm -a ${PACKAGE_ARCH} -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${TM
   -d "libgles2-mesa >= 13.0.6" \
   -d "libglib2.0-0 >= 2.50.3" \
   -d "libicu-dev >= 57.1" \
+  -d "libicu63" \
   -d "libinput-bin >= 1.6.3" \
   -d "libinput10 >= 1.6.3" \
   -d "libjpeg-dev > 0" \
