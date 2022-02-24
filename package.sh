@@ -39,10 +39,9 @@ VERSION=$(git describe)
 rm ${PACKAGE_NAME}_${VERSION//v}_${PACKAGE_ARCH}.deb > /dev/null 2>&1
 
 fpm -a ${PACKAGE_ARCH} -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${TMPDIR} \
-  -p ${PACKAGE_NAME}_VERSION_ARCH.deb \
-  --provides openhd-qt \
   $PLATFORM_CONFIGS \
   -p ${PACKAGE_NAME}_VERSION_ARCH.deb \
+  --provides openhd-qt \
   $PLATFORM_PACKAGES \
   -d "flite >= 2.0.0" \
   -d "flite1-dev >= 2.0.0" \
