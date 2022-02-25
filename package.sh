@@ -32,13 +32,13 @@ fi
 
 PACKAGE_NAME=openhd-qt-${PLATFORM}
 
-TMPDIR=/tmp/${PACKAGE_NAME}-installdir
+PKGDIR=/tmp/${PACKAGE_NAME}-installdir
 
 VERSION=$(git describe)
 
 rm ${PACKAGE_NAME}_${VERSION//v}_${PACKAGE_ARCH}.deb > /dev/null 2>&1
 
-fpm -a ${PACKAGE_ARCH} -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${TMPDIR} \
+fpm -a ${PACKAGE_ARCH} -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${PKGDIR} \
   $PLATFORM_CONFIGS \
   -p ${PACKAGE_NAME}_VERSION_ARCH.deb \
   --provides openhd-qt \
