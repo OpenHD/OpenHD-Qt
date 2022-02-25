@@ -73,6 +73,7 @@ flite1-dev \
 libasound2-dev \
 libdbus-1-dev \
 libdouble-conversion-dev \
+libdouble-conversion1 \
 libdrm-dev \
 libegl1-mesa-dev \
 libfontconfig1-dev \
@@ -86,6 +87,7 @@ libjpeg-dev \
 libnss3-dev \
 libpng-dev \
 libpulse-dev \
+libicu63 \
 libspeechd-dev  \
 libsqlite3-dev \
 libssl-dev \
