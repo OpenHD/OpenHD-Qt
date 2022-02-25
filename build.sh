@@ -136,7 +136,7 @@ pushd build
 -prefix /opt/Qt${QT_MAJOR_VERSION}.${QT_MINOR_VERSION} \
 -qpa eglfs || exit 1
 
-make -j3 || exit 1
+make -j1 || exit 1
 
 INSTALL_ROOT=${TMPDIR} make install || exit 1
 
