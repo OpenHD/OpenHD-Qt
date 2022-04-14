@@ -61,9 +61,9 @@ if [ ! -f qt-raspberrypi-configuration ]; then
     git clone https://github.com/OpenHD/qt-raspberrypi-configuration.git
 fi
 
-bash pushd qt-raspberrypi-configuration
+pushd qt-raspberrypi-configuration
 make install DESTDIR=../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}
-bash popd
+popd
 
 apt-get update
 
@@ -102,7 +102,7 @@ rm -rf build
 
 mkdir -p build
 
-bash pushd build
+pushd build
 
 ../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/configure -platform ${PLATFORM} \
 -v \
