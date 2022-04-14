@@ -58,12 +58,12 @@ fi
 tar xvf qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}.tar.xz || exit 1
 
 if [ ! -f qt-raspberrypi-configuration ]; then
-    git clone -b 2.1-milestones https://github.com/OpenHD/qt-raspberrypi-configuration.git
+    git clone https://github.com/OpenHD/qt-raspberrypi-configuration.git
 fi
 
-pushd qt-raspberrypi-configuration
+bash pushd qt-raspberrypi-configuration
 make install DESTDIR=../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}
-popd
+bash popd
 
 apt-get update
 
@@ -73,7 +73,6 @@ flite1-dev \
 libasound2-dev \
 libdbus-1-dev \
 libdouble-conversion-dev \
-libdouble-conversion1 \
 libdrm-dev \
 libegl1-mesa-dev \
 libfontconfig1-dev \
@@ -87,7 +86,6 @@ libjpeg-dev \
 libnss3-dev \
 libpng-dev \
 libpulse-dev \
-libicu63 \
 libspeechd-dev  \
 libsqlite3-dev \
 libssl-dev \
@@ -104,7 +102,7 @@ rm -rf build
 
 mkdir -p build
 
-pushd build
+bash pushd build
 
 ../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/configure -platform ${PLATFORM} \
 -v \
