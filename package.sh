@@ -39,7 +39,7 @@ VERSION=$(git describe)
 rm ${PACKAGE_NAME}_${VERSION//v}_${PACKAGE_ARCH}.deb > /dev/null 2>&1
 
 
-fpm -a armhf -s dir -t deb -n openhd-qt-bullseye -v 2.1 -C /tmp/openhd-qt-bullseye-installdir \
+fpm -a armhf -s dir -t deb -n openhd-qt-bullseye -v 2.1 -C ${PKGDIR} \
   $PLATFORM_CONFIGS \
   -p ${PACKAGE_NAME}_VERSION_ARCH.deb \
   --provides openhd-qt \
