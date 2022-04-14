@@ -6,7 +6,7 @@ COPY . /data/
 
 RUN apt-get update
 
-RUN apt-get install wget
+RUN apt-get install wget xz-utils 
 
 WORKDIR /data
 
