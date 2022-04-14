@@ -36,15 +36,10 @@ PKGDIR=/tmp/${PACKAGE_NAME}-installdir
 
 VERSION=$(git describe)
 
-echo dir deb
-
-dir
-
-deb
-
 rm ${PACKAGE_NAME}_${VERSION//v}_${PACKAGE_ARCH}.deb > /dev/null 2>&1
 
-fpm -a ${PACKAGE_ARCH} -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${PKGDIR} \
+
+fpm -a armhf -s dir -t deb -n openhd-qt-bullseye -v 2.1 -C /tmp/openhd-qt-bullseye-installdir \
   $PLATFORM_CONFIGS \
   -p ${PACKAGE_NAME}_VERSION_ARCH.deb \
   --provides openhd-qt \
