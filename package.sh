@@ -36,6 +36,12 @@ PKGDIR=/tmp/${PACKAGE_NAME}-installdir
 
 VERSION=$(git describe)
 
+echo dir deb
+
+dir
+
+deb
+
 rm ${PACKAGE_NAME}_${VERSION//v}_${PACKAGE_ARCH}.deb > /dev/null 2>&1
 
 fpm -a ${PACKAGE_ARCH} -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${PKGDIR} \
