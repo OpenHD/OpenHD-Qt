@@ -12,7 +12,7 @@ fi
 if [ "$TYPE" == "pi-stretch" ]; then
     PLATFORM="linux-rpi-g++"
     SSL_ARGS="-no-openssl"
-elif [ "$TYPE" == "pi-buster" ]; then
+elif [ "$TYPE" == "pi-bullseye" ]; then
     PLATFORM="linux-rpi-vc4-g++"
     SSL_ARGS="-openssl"
 elif [ "$TYPE" == "jetson-nano" ]; then
@@ -58,7 +58,7 @@ fi
 tar xvf qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}.tar.xz || exit 1
 
 if [ ! -f qt-raspberrypi-configuration ]; then
-    git clone https://github.com/OpenHD/qt-raspberrypi-configuration.git
+    git clone -b 2.1-milestones https://github.com/OpenHD/qt-raspberrypi-configuration.git
 fi
 
 pushd qt-raspberrypi-configuration
