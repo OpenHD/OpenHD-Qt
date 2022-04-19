@@ -59,7 +59,7 @@ fi
 tar xf qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}.tar.xz || exit 1
 
 if [ ! -f qt-raspberrypi-configuration ]; then
-    git clone https://github.com/oniongarlic/qt-raspberrypi-configuration
+    git clone https://github.com/OpenHD/qt-raspberrypi-configuration
 fi
 
 apt -y install wget xz-utils 
