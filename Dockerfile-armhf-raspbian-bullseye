@@ -15,5 +15,5 @@ RUN export CLOUDSMITH_API_KEY=$CLOUDSMITH_API_KEY
 RUN apt -y install build-essential
 
 
-RUN /data/build.sh armhf raspbian bullseye docker
+RUN /data/build.sh pi-bullseye
 RUN /data/package.sh armhf raspbian bullseye docker
