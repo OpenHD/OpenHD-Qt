@@ -38,6 +38,8 @@ VERSION=$(git describe)
 
 rm ${PACKAGE_NAME}_${VERSION//v}_${PACKAGE_ARCH}.deb > /dev/null 2>&1
 
+apt install wget xz-utils 
+
 
 fpm -a armhf -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${PKGDIR} \
   $PLATFORM_CONFIGS \

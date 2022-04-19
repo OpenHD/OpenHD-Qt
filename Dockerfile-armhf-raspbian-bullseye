@@ -6,8 +6,6 @@ COPY . /data/
 
 RUN apt-get update
 
-RUN apt-get install wget xz-utils 
-
 WORKDIR /data
 
 ARG CLOUDSMITH_API_KEY=000000000000
