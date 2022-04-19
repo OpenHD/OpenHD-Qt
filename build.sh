@@ -1,3 +1,4 @@
+#!/bin/bash
 
 QT_MAJOR_VERSION=5.15
 QT_MINOR_VERSION=0
@@ -61,9 +62,12 @@ if [ ! -f qt-raspberrypi-configuration ]; then
     git clone https://github.com/OpenHD/qt-raspberrypi-configuration.git
 fi
 
+apt -y install wget xz-utils 
+
 pushd qt-raspberrypi-configuration
 make install DESTDIR=../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}
 popd
+
 
 apt-get update
 
