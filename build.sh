@@ -46,7 +46,7 @@ fi
 
 if [ ! -f qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}.tar.xz ]; then
         echo "Download Qt ${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}"
-        wget http://download.qt.io/official_releases/qt/${QT_MAJOR_VERSION}/${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/single/qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}.tar.xz
+        wget -q --show-progress --progress=bar:force:noscroll http://download.qt.io/official_releases/qt/${QT_MAJOR_VERSION}/${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/single/qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}.tar.xz
 fi
 
 echo "Building Qt for ${TYPE} (${PLATFORM})"
@@ -59,7 +59,7 @@ fi
 tar xvf qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}.tar.xz || exit 1
 
 if [ ! -f qt-raspberrypi-configuration ]; then
-    git clone https://github.com/OpenHD/qt-raspberrypi-configuration.git
+    git clone https://github.com/oniongarlic/qt-raspberrypi-configuration
 fi
 
 apt -y install wget xz-utils 
