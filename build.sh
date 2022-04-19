@@ -108,7 +108,7 @@ mkdir -p build
 
 pushd build
 
-../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/configure -platform ${PLATFORM} \
+../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/configure -v -platform ${PLATFORM} \
 -v \
 -opengl es2 -eglfs \
 -no-gtk \
