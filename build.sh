@@ -14,7 +14,7 @@ if [ "$TYPE" == "pi-stretch" ]; then
     PLATFORM="linux-rpi-g++"
     SSL_ARGS="-no-openssl"
 elif [ "$TYPE" == "pi-bullseye" ]; then
-    PLATFORM="linux-rpi-vc4-g++"
+    PLATFORM="linux-rpi4-v3d-g++"
     SSL_ARGS="-openssl"
 elif [ "$TYPE" == "jetson-nano" ]; then
     PLATFORM="linux-jetson-nano-g++"
