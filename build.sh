@@ -71,7 +71,7 @@ popd
 
 apt-get update
 
-apt-get install build-essential \
+apt -y install build-essential \
 flite \
 flite1-dev \
 libasound2-dev \
