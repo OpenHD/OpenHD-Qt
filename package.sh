@@ -38,10 +38,7 @@ VERSION=$(git describe)
 
 rm ${PACKAGE_NAME}_${VERSION//v}_${PACKAGE_ARCH}.deb > /dev/null 2>&1
 
-apt -y install wget xz-utils 
-
-
-fpm -a armhf -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${PKGDIR} \
+fpm -a ${PACKAGE_ARCH} -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${PKGDIR} \
   $PLATFORM_CONFIGS \
   -p ${PACKAGE_NAME}_VERSION_ARCH.deb \
   --provides openhd-qt \
@@ -50,7 +47,6 @@ fpm -a armhf -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${PKGDIR} \
   -d "flite1-dev >= 2.0.0" \
   -d "libasound2 >= 1.1.3" \
   -d "libdbus-1-3 >= 1.10.28" \
-  -d "libdouble-conversion3" \
   -d "libdouble-conversion1" \
   -d "libdrm2 >= 2.4.74" \
   -d "libegl1-mesa >= 13.0.6" \
@@ -60,7 +56,6 @@ fpm -a armhf -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${PKGDIR} \
   -d "libgles2-mesa >= 13.0.6" \
   -d "libglib2.0-0 >= 2.50.3" \
   -d "libicu-dev >= 57.1" \
-  -d "libicu63" \
   -d "libinput-bin >= 1.6.3" \
   -d "libinput10 >= 1.6.3" \
   -d "libjpeg-dev > 0" \
@@ -86,8 +81,8 @@ fpm -a armhf -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${PKGDIR} \
 git describe --exact-match HEAD > /dev/null 2>&1
 if [[ $? -eq 0 ]]; then
     echo "Pushing package to OpenHD repository"
-    cloudsmith push deb openhd/openhd-2-1/${OS}/${DISTRO} ${PACKAGE_NAME}_${VERSION//v}_${PACKAGE_ARCH}.deb
+    cloudsmith push deb openhd/openhd-2-1-alpha/${OS}/${DISTRO} ${PACKAGE_NAME}_${VERSION//v}_${PACKAGE_ARCH}.deb
 else
-    echo "Pushing package to OpenHD Milestone repository"
+    echo "Pushing package to OpenHD testing repository"
     cloudsmith push deb openhd/openhd-2-1-alpha/${OS}/${DISTRO} ${PACKAGE_NAME}_${VERSION//v}_${PACKAGE_ARCH}.deb
 fi
