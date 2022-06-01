@@ -56,7 +56,7 @@ if [ -d qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION} ]; then
         rm -rf qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}
 fi
 
-tar xf qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}.tar.xz || exit 1
+tar xf qt-everywhere-opensource-src-5.15.4.tar.xz || exit 1
 
 if [ ! -f qt-raspberrypi-configuration ]; then
     git clone https://github.com/OpenHD/qt-raspberrypi-configuration
