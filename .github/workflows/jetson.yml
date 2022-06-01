@@ -30,12 +30,12 @@ jobs:
 
       - name: Packaging
         run: |
-          sudo ./package.sh arm64 ubuntu bionic
+          sudo ./package.sh jetson-nano bionic
 
       - name: Upload to Github
         uses: 'actions/upload-artifact@v2'
         with:
-          name: "Open.HD"
+          name: "qt"
           path: |
             *.deb
             *.log
