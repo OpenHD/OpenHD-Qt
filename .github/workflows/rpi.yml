@@ -37,7 +37,7 @@ jobs:
             cd /opt
             cd qt-raspberrypi
             apt update
-            sudo ./build.sh armhf raspbian bullseye
+            sudo ./build.sh pi bullseye
             sudo ./package.sh armhf raspbian bullseye
             ls -a
 
