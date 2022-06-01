@@ -27,6 +27,9 @@ jobs:
       - name: Building
         run: |
           sudo ./build.sh jetson-nano
+
+      - name: Packaging
+        run: |
           sudo ./package.sh arm64 ubuntu bionic
 
       - name: Upload to Github
