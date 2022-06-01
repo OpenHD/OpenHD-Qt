@@ -22,14 +22,11 @@ jobs:
       - name: Checkout repository and submodules
         uses: actions/checkout@v3
         with:
-          submodules: recursive
-          
-      - name: Install Dependencies
-        run: |
-          sudo ./install_dep_jetson.sh
+          submodules: recursive   
 
-      - name: Build with make
+      - name: Building
         run: |
+          sudo ./build.sh arm64 ubuntu bionic
           sudo ./package.sh arm64 ubuntu bionic
 
       - name: Upload to Github
