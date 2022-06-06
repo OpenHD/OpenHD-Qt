@@ -1,4 +1,4 @@
-name: Build Jetson
+name: Build Jetson ONLINE
 
 on: [push]
 
@@ -8,29 +8,27 @@ env:
 
 jobs:
   build:
-    runs-on: [self-hosted, linux, ARM64]
+    runs-on: ubuntu-latest
     steps:
-      - name: test
-        run: |
-          echo "DT=$(date +'%Y-%m-%d_%H%M')" >> $GITHUB_ENV
-          echo "BRANCH=${GITHUB_REF##*/}" >> $GITHUB_ENV    
-
-      - name: Clean UP
-        run: |
-          sudo rm -Rf *
-
+ 
       - name: Checkout repository and submodules
         uses: actions/checkout@v3
         with:
           submodules: recursive   
 
-      - name: Building
-        run: |
-          sudo ./build.sh jetson-nano
-
-      - name: Packaging
-        run: |
-          sudo ./package.sh jetson-nano bionic
+      - name: Emulating Jetson
+        id: push
+        uses: pguyot/arm-runner-action@f204b58258d5b01e297eec6db036a14b11dc9ffa
+        with:
+          base_image: https://openhdfpv.org/wp-content/BaseImages/jetson-qemu.zip
+          cpu: cortex-a53
+          bootpartition:
+          rootpartition: 1
+          commands: |
+            cat /etc/os-release
+            uname -a
+            sudo ./build.sh jetson-nano
+            sudo ./package.sh jetson-nano bionic
 
       - name: Upload to Github
         uses: 'actions/upload-artifact@v2'
