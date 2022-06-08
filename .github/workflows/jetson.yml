@@ -24,7 +24,7 @@ jobs:
           cpu: cortex-a53
           bootpartition:
           rootpartition: 1
-          image_additional_mb: 10000
+          image_additional_mb: 5000
           copy_repository_path: /opt
           copy_artifact_path: qt-raspberry
           import_github_env: true
