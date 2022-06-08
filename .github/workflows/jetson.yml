@@ -40,8 +40,8 @@ jobs:
           path: |
             qt-raspberry/*.deb
         
-      - name: Push
-        id: push
+      - name: Push to Cloudsmith
+        id: cloudsmith push
         uses: cloudsmith-io/action@master
         with:
           api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
