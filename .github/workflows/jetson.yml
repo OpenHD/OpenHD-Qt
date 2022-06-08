@@ -20,13 +20,16 @@ jobs:
         id: push
         uses: pguyot/arm-runner-action@f204b58258d5b01e297eec6db036a14b11dc9ffa
         with:
-          base_image: https://openhdfpv.org/wp-content/BaseImages/jetson-qemu.zip
+          base_image: http://openhdfpv.org/wp-content/BaseImages/Open.HD-2.1-05221841-jetson-nano-4gb-bionic.img.zip
           cpu: cortex-a53
           bootpartition:
           rootpartition: 1
+          image_additional_mb: 20000
+          copy_repository_path: /opt
+          copy_artifact_path: qt-raspberry
+          import_github_env: true
           commands: |
-            cat /etc/os-release
-            uname -a
+            cd /opt/qt-raspberry
             sudo ./build.sh jetson-nano
             sudo ./package.sh jetson-nano bionic
 
@@ -35,10 +38,22 @@ jobs:
         with:
           name: "qt"
           path: |
-            *.deb
-            *.log
-          if-no-files-found: error
-          
+            qt-raspberry/*.deb
+        
+      - name: Push
+        id: push
+        uses: cloudsmith-io/action@master
+        with:
+          api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
+          command: "push"
+          format: "deb"
+          owner: "openhd"
+          repo: "openhd-2-1-alpha"
+          distro: "ubuntu"
+          release: "bionic"
+          republish: "true" # needed ONLY if version is not changing
+          file: "qt-raspberry/*.deb"
+
       #- name: Install
       #  run: |
       #    cd OpenHD/build
