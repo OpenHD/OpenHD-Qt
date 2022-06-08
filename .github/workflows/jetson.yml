@@ -29,7 +29,7 @@ jobs:
           copy_artifact_path: qt-raspberry
           import_github_env: true
           commands: |
-            cd /opt/qt-raspberry
+            ls -a
             sudo ./build.sh jetson-nano
             sudo ./package.sh jetson-nano bionic
 
@@ -38,7 +38,7 @@ jobs:
         with:
           name: "qt"
           path: |
-            qt-raspberry/*.deb
+            *.deb
         
       - name: Push to Cloudsmith
         id: cloudsmithpush
@@ -52,7 +52,7 @@ jobs:
           distro: "ubuntu"
           release: "bionic"
           republish: "true" # needed ONLY if version is not changing
-          file: "qt-raspberry/*.deb"
+          file: "*.deb"
 
       #- name: Install
       #  run: |
