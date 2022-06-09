@@ -71,6 +71,7 @@ pushd build
 -qt-pcre \
 -no-pch \
 -ssl \
+-kms \
 -evdev \
 -system-freetype \
 -fontconfig \
