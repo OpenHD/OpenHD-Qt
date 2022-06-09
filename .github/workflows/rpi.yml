@@ -18,7 +18,6 @@ jobs:
     - name: build qt
       run: |
        ls -a
-       cd qt-raspberrypi
        apt update
        sudo ./build.sh pi bullseye
        sudo ./package.sh armhf raspbian bullseye
