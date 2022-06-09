@@ -4,11 +4,6 @@ PLATFORM=$1
 DISTRO=$2
 BUILD_TYPE=$3
 
-if [ "$PLATFORM" == "" ]; then
-    PLATFORM="pi"
-    DISTRO="stretch"
-fi
-
 if [[ "${PLATFORM}" == "pi" ]]; then
     OS="raspbian"
     ARCH="arm"
