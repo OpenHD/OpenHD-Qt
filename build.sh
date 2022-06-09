@@ -25,7 +25,7 @@ TMPDIR=/tmp/${PACKAGE_NAME}-installdir
 
 mkdir -p ${TMPDIR}
 
-rm -r ${TMPDIR}/*
+sudo rm -r ${TMPDIR}/*
 
 
 if [ ! -f qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}.tar.xz ]; then
@@ -51,7 +51,7 @@ pushd qt-raspberrypi-configuration
 make install DESTDIR=../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}
 popd
 
-rm -rf build
+sudo rm -rf build
 
 mkdir -p build
 
