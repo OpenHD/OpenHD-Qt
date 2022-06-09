@@ -28,8 +28,6 @@ mkdir -p ${TMPDIR}
 rm -r ${TMPDIR}/*
 
 
-fi
-
 if [ ! -f qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}.tar.xz ]; then
         echo "Download Qt ${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}"
         wget -q --show-progress --progress=bar:force:noscroll https://download.qt.io/archive/qt/5.15/5.15.4/single/qt-everywhere-opensource-src-5.15.4.tar.xz
