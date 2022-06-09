@@ -57,7 +57,7 @@ mkdir -p build
 
 pushd build
 
-../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/configure -v -platform ${PLATFORM} \
+../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/configure -v -platform linux-rpi4-v3d-g++ \
 -v \
 -v \
 -opengl es2 -eglfs \
@@ -76,7 +76,7 @@ pushd build
 -fontconfig \
 -glib \
 -prefix /opt/Qt${QT_MAJOR_VERSION}.${QT_MINOR_VERSION} \
--no-feature-eglfs_brcm
+-no-feature-eglfs_brcm \
 -qpa eglfs || exit 1
 
 make -j4 || exit 1
