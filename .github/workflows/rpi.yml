@@ -16,7 +16,7 @@ jobs:
       run: |
        ls -a
        sudo apt update
-       sudo ./package.sh armhf raspbian bullseye
+       sudo ./package.sh armhf bullseye
        ls -a
 
     - name: Upload to Github
