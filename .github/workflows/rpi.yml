@@ -16,7 +16,7 @@ jobs:
       run: |
        ls -a
        sudo apt update
-       sudo ./package.sh armhf bullseye
+       sudo ./package.sh pi bullseye
        ls -a
 
     - name: Upload to Github
