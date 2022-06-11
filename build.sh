@@ -67,7 +67,28 @@ pushd build
 -force-pkg-config \
 -nomake examples -no-compile-examples -nomake tests \
 -skip qtwebengine \
+-skip qtwayland \
+-skip qtxmlpatterns \
+-skip qtsensors \
+-skip qtpurchasing \
+-skip qtnetworkauth \
+-no-feature-cups \
+-no-feature-testlib \
+-no-feature-dbus \
+-no-feature-vnc \
+-no-compile-examples \
 -no-feature-geoservices_mapboxgl \
+-no-feature-xlib \
+-no-feature-qt3d-animation \
+-no-feature-qt3d-extras \
+-no-feature-qt3d-input \
+-no-feature-qt3d-logic \
+-no-feature-opengl-renderer \
+-no-feature-qt3d-renderer \
+-no-feature-qt3d-rhi-renderer \
+-no-feature-qt3d-simd-avx2 \
+-no-feature-qt3d-simd-sse2 \
+-no-xcb \
 -qt-pcre \
 -no-pch \
 -ssl \
