@@ -83,11 +83,12 @@ pushd build
 -no-feature-qt3d-extras \
 -no-feature-qt3d-input \
 -no-feature-qt3d-logic \
--no-feature-opengl-renderer \
--no-feature-qt3d-renderer \
+-no-feature-qt3d-opengl-renderer \
+-no-feature-qt3d-render \
 -no-feature-qt3d-rhi-renderer \
 -no-feature-qt3d-simd-avx2 \
 -no-feature-qt3d-simd-sse2 \
+-no-feature-qtlocation \
 -no-xcb \
 -qt-pcre \
 -no-pch \
@@ -101,8 +102,11 @@ pushd build
 -no-feature-eglfs_brcm \
 -qpa eglfs || exit 1
 
-make -j4 || exit 1
+make -j4
 
-INSTALL_ROOT=${TMPDIR} make install || exit 1
+cd build
+
+sudo chown -R openhd:openhd /opt/
+INSTALL_ROOT=${TMPDIR} make install
 
 popd
