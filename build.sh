@@ -102,7 +102,7 @@ pushd build
 -no-feature-eglfs_brcm \
 -qpa eglfs || exit 1
 
-make -j4
+make -j1
 
 cd build
 
