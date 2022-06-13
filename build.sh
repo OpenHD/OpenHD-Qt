@@ -88,7 +88,6 @@ pushd build
 -no-feature-qt3d-rhi-renderer \
 -no-feature-qt3d-simd-avx2 \
 -no-feature-qt3d-simd-sse2 \
--no-feature-qtlocation \
 -no-xcb \
 -qt-pcre \
 -no-pch \
