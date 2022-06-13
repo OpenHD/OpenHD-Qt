@@ -38,11 +38,9 @@ fpm -a ${PACKAGE_ARCH} -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${PK
   -p ${PACKAGE_NAME}_VERSION_ARCH.deb \
   --provides openhd-qt \
   $PLATFORM_PACKAGES \
-  -d "flite >= 2.0.0" \
   -d "flite1-dev >= 2.0.0" \
   -d "libasound2 >= 1.1.3" \
   -d "libdbus-1-3 >= 1.10.28" \
-  -d "libdouble-conversion1" \
   -d "libdrm2 >= 2.4.74" \
   -d "libegl1-mesa >= 13.0.6" \
   -d "libfontconfig1 >= 2.11.0" \
@@ -69,10 +67,7 @@ fpm -a ${PACKAGE_ARCH} -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${PK
   -d "libxkbcommon0 >= 0.7.1" || exit 1
 
 
-#
-# Only push to cloudsmith for tags. If you don't want something to be pushed to the repo, 
-# don't create a tag. You can build packages and test them locally without tagging.
-#
+
 git describe --exact-match HEAD > /dev/null 2>&1
 if [[ $? -eq 0 ]]; then
     echo "normal"
