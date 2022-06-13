@@ -101,9 +101,9 @@ pushd build
 -no-feature-eglfs_brcm \
 -qpa eglfs || exit 1
 
-
-sed -i '310 i #elif defined(__ARM_ARCH_8A__)' qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/qtscript/src/3rdparty/javascriptcore/JavaScriptCore/wtf/Platform.h
-sed -i '311 i #define WTF_CPU_ARM_TRADITIONAL 1' qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/qtscript/src/3rdparty/javascriptcore/JavaScriptCore/wtf/Platform.h
+ls -a
+sed -i '310 i #elif defined(__ARM_ARCH_8A__)' ../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/qtscript/src/3rdparty/javascriptcore/JavaScriptCore/wtf/Platform.h
+sed -i '311 i #define WTF_CPU_ARM_TRADITIONAL 1' ../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/qtscript/src/3rdparty/javascriptcore/JavaScriptCore/wtf/Platform.h
 
  make -j1
 
