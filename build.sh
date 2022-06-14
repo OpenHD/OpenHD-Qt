@@ -71,6 +71,8 @@ pushd build
 -skip qtsensors \
 -skip qtpurchasing \
 -skip qtnetworkauth \
+-skip qtdeclarative \
+-skip qt3d \
 -no-feature-cups \
 -no-feature-testlib \
 -no-feature-dbus \
@@ -78,15 +80,6 @@ pushd build
 -no-compile-examples \
 -no-feature-geoservices_mapboxgl \
 -no-feature-xlib \
--no-feature-qt3d-animation \
--no-feature-qt3d-extras \
--no-feature-qt3d-input \
--no-feature-qt3d-logic \
--no-feature-qt3d-opengl-renderer \
--no-feature-qt3d-render \
--no-feature-qt3d-rhi-renderer \
--no-feature-qt3d-simd-avx2 \
--no-feature-qt3d-simd-sse2 \
 -no-xcb \
 -qt-pcre \
 -no-pch \
