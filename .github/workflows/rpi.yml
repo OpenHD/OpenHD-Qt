@@ -16,7 +16,8 @@ jobs:
       run: |
        ls -a
        sudo apt update
-       sudo ./package.sh pi bullseye
+       sudo ./build pi-bullseye
+       sudo ./package.sh pi-bullseye
        ls -a
 
     - name: Upload to Github
