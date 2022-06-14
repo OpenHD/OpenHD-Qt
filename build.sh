@@ -104,11 +104,26 @@ ls -a
 sed -i '309 i #elif defined(__ARM_ARCH_8A__)' ../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/qtscript/src/3rdparty/javascriptcore/JavaScriptCore/wtf/Platform.h
 sed -i '310 i #define WTF_CPU_ARM_TRADITIONAL 1' ../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/qtscript/src/3rdparty/javascriptcore/JavaScriptCore/wtf/Platform.h
 
-make -j4
+make -j1
 
-cd build
+echo "Build Complete"
+echo "Build Complete"
+echo "Build Complete"
+echo "Build Complete"
+echo "Build Complete"
+echo "Build Complete"
+echo "Build Complete"
+echo "Build Complete"
+echo "Build Complete"
+echo "Build Complete"
 
-sudo chown -R openhd:openhd /opt/
-INSTALL_ROOT=${TMPDIR} make install
+sudo INSTALL_ROOT=${TMPDIR} make install
+
+echo "Install Complete"
+echo "Install Complete"
+echo "Install Complete"
+echo "Install Complete"
+echo "Install Complete"
+echo "Install Complete"
 
 popd
