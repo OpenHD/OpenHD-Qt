@@ -23,7 +23,8 @@ jobs:
       with:
         name: "Open.HD"
         path: |
-          qt-raspberrypi/*.deb
+          *.deb
+          *.log
         if-no-files-found: error
 
         
