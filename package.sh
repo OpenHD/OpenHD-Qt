@@ -27,9 +27,9 @@ fi
 
 PACKAGE_NAME=openhd-qt-${PLATFORM}
 
-PKGDIR=/tmp/${PACKAGE_NAME}-installdir
+PKGDIR=/tmp/${PACKAGE_NAME}
 
-VERSION=VERSION=Qt5.15.4-$(date '+%m%d%H%M')
+VERSION=Qt5.15.4-$(date '+%m%d%H%M')
 
 rm ${PACKAGE_NAME}_${VERSION//v}_${PACKAGE_ARCH}.deb > /dev/null 2>&1
 

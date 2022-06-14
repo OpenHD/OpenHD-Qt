@@ -21,7 +21,7 @@ fi
 
 PACKAGE_NAME=openhd-qt-${TYPE}
 
-TMPDIR=/tmp/${PACKAGE_NAME}-installdir
+TMPDIR=/tmp/${PACKAGE_NAME}
 
 mkdir -p ${TMPDIR}
 

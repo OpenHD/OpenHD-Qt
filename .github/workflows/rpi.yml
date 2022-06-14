@@ -21,7 +21,7 @@ jobs:
        ls -a
        sudo apt update
        bash debug.sh
-       sudo ./package.sh armhf raspbian bullseye
+       sudo ./package.sh pi bullseye
        ls -a
 
     - name: Upload to Github
@@ -29,8 +29,8 @@ jobs:
       with:
         name: "Open.HD"
         path: |
-          qt-raspberrypi/*.deb
-          qt-raspberrypi/*.log
+          *.deb
+          *.log
 
         
       #- name: Install
