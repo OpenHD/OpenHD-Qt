@@ -15,7 +15,7 @@ jobs:
     - name: build qt
       run: |
        ls -a
-       sudo ./package.sh pi-bullseye
+       sudo ./package.sh pi bullseye
        ls -a
 
     - name: Upload to Github
