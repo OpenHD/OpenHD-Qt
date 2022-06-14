@@ -15,7 +15,6 @@ jobs:
     - name: build qt
       run: |
        ls -a
-       bash debug.sh    
        sudo ./package.sh pi-bullseye
        ls -a
 
