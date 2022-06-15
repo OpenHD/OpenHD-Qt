@@ -29,7 +29,7 @@ PACKAGE_NAME=openhd-qt-${PLATFORM}-${DISTRO}
 
 PKGDIR=/tmp/${PACKAGE_NAME}
 
-VERSION=Qt5.15.4-$(date '+%m%d%H%M')
+VERSION=5.15.4-$(date '+%m%d%H%M')
 
 rm ${PACKAGE_NAME}_${VERSION//v}_${PACKAGE_ARCH}.deb > /dev/null 2>&1
 
