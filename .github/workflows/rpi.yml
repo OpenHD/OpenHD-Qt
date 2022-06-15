@@ -15,8 +15,6 @@ jobs:
     - name: build qt
       run: |
        ls -a
-       sudo ./package.sh pi bullseye
-       ls -a
 
     - name: Upload to Github
       uses: 'actions/upload-artifact@v2'
