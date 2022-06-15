@@ -71,7 +71,6 @@ pushd build
 -skip qtsensors \
 -skip qtpurchasing \
 -skip qtnetworkauth \
--skip qtdeclarative \
 -skip qt3d \
 -no-feature-cups \
 -no-feature-testlib \
@@ -97,7 +96,7 @@ ls -a
 sed -i '309 i #elif defined(__ARM_ARCH_8A__)' ../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/qtscript/src/3rdparty/javascriptcore/JavaScriptCore/wtf/Platform.h
 sed -i '310 i #define WTF_CPU_ARM_TRADITIONAL 1' ../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/qtscript/src/3rdparty/javascriptcore/JavaScriptCore/wtf/Platform.h
 
-make -j1
+make -j2
 
 echo "Build Complete"
 echo "Build Complete"
