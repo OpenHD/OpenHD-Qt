@@ -25,7 +25,7 @@ nameserver 8.8.4.4
 EOF
 fi
 
-PACKAGE_NAME=openhd-qt-${PLATFORM}
+PACKAGE_NAME=openhd-qt-${PLATFORM}-${DISTRO}
 
 PKGDIR=/tmp/${PACKAGE_NAME}
 
