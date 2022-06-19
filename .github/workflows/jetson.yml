@@ -18,6 +18,7 @@ jobs:
     - name: build qt
       run: |
        ls -a
+       sudo bash install_dep.sh
        sudo apt update
        ./build.sh jetson-nano |& tee >(ts "%d-%m-%y %H_%M_%S" > build.log)       
        sudo ./package.sh jetson-nano bionic
