@@ -50,7 +50,7 @@ elif [ "$TYPE" == "jetson-nano" ]; then
          if [ ! -f qt-raspberrypi-configuration ]; then
             git clone https://github.com/OpenHD/qt-raspberrypi-configuration.git
         fi
-
+fi
 pushd qt-raspberrypi-configuration
 make install DESTDIR=../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}
 popd
