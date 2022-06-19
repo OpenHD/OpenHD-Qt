@@ -41,8 +41,8 @@ jobs:
         format: "deb"
         owner: "openhd"
         repo: "openhd-2-1-alpha"
-        distro: "raspbian"
-        release: "bullseye"
+        distro: "ubuntu"
+        release: "bionic"
         republish: "true" # needed ONLY if version is not changing
         file: "*.deb"        
   
