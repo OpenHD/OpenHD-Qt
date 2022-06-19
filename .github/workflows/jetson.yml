@@ -1,0 +1,47 @@
+name: Build RPI
+
+on: [push]
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    runs-on: [self-hosted, linux, ARM64]
+    timeout-minutes: 900
+    env:
+      CLOUDSMITH_API_KEY: ${{ secrets.CLOUDSMITH_API_KEY }}
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: build qt
+      run: |
+       ls -a
+       sudo apt update
+       ./build.sh jetson-nano |& tee >(ts "%d-%m-%y %H_%M_%S" > build.log)       
+       sudo ./package.sh jetson-nano bionic
+       ls -a
+
+    - name: Upload to Github
+      uses: 'actions/upload-artifact@v2'
+      with:
+        name: "Open.HD-QT"
+        path: |
+          *.deb
+          *.log
+
+    - name: Push
+      id: push
+      uses: cloudsmith-io/action@master
+      with:
+        api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
+        command: "push"
+        format: "deb"
+        owner: "openhd"
+        repo: "openhd-2-1-alpha"
+        distro: "raspbian"
+        release: "bullseye"
+        republish: "true" # needed ONLY if version is not changing
+        file: "*.deb"        
+  
