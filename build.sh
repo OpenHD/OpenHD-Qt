@@ -41,11 +41,15 @@ if [ -d qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION} ]; then
 fi
 
 tar xf qt-everywhere-opensource-src-5.15.4.tar.xz || exit 1
+if [ "$TYPE" == "pi-bullseye" ]; then
 
-if [ ! -f qt-raspberrypi-configuration ]; then
-    git clone https://github.com/oniongarlic/qt-raspberrypi-configuration.git
-fi
-
+        if [ ! -f qt-raspberrypi-configuration ]; then
+            git clone https://github.com/oniongarlic/qt-raspberrypi-configuration.git
+        fi
+elif [ "$TYPE" == "jetson-nano" ]; then
+         if [ ! -f qt-raspberrypi-configuration ]; then
+            git clone https://github.com/OpenHD/qt-raspberrypi-configuration.git
+        fi
 
 pushd qt-raspberrypi-configuration
 make install DESTDIR=../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}
@@ -57,7 +61,7 @@ mkdir -p build
 
 pushd build
 
-../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/configure -v -platform linux-rpi4-v3d-g++ \
+../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/configure -v -platform ${PLATFORM} \
 -v \
 -opengl es2 -eglfs \
 -no-gtk \
