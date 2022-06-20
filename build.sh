@@ -6,7 +6,7 @@ QT_MINOR_VERSION=4
 TYPE=$1
 
 if [ "$TYPE" == "" ]; then
-    echo "Missing build type: pi-bullseye, jetson-nano"
+    echo "Missing build type: pi-bullseye, jetson-nano-bionic"
     exit 1
 fi
 
@@ -14,7 +14,7 @@ fi
 if [ "$TYPE" == "pi-bullseye" ]; then
     PLATFORM="linux-rpi4-v3d-g++"
     SSL_ARGS="-openssl"
-elif [ "$TYPE" == "jetson-nano" ]; then
+elif [ "$TYPE" == "jetson-nano-bionic" ]; then
     PLATFORM="linux-jetson-nano-g++"
     SSL_ARGS="-openssl"
 fi
