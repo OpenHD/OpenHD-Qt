@@ -76,7 +76,7 @@ pushd build
 -skip qtpurchasing \
 -skip qtnetworkauth \
 -skip qt3d \
--skip qtscript
+-skip qtscript \
 -no-feature-cups \
 -no-feature-testlib \
 -no-feature-dbus \
