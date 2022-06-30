@@ -11,8 +11,8 @@ if [ "$TYPE" == "" ]; then
 fi
 
 
-if [ "$TYPE" == "pi-bullseye" ]; then
-    PLATFORM="linux-rpi4-v3d-g++"
+if [ "$TYPE" == "pi-bullseye-legacy" ]; then
+    PLATFORM="linux-rpi2-g++"
     SSL_ARGS="-openssl"
 elif [ "$TYPE" == "jetson-nano-bionic" ]; then
     PLATFORM="linux-jetson-nano-g++"
@@ -41,7 +41,7 @@ if [ -d qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION} ]; then
 fi
 
 tar xf qt-everywhere-opensource-src-5.15.4.tar.xz || exit 1
-if [ "$TYPE" == "pi-bullseye" ]; then
+if [ "$TYPE" == "pi-bullseye-legacy" ]; then
 
         if [ ! -f qt-raspberrypi-configuration ]; then
             git clone https://github.com/oniongarlic/qt-raspberrypi-configuration.git
@@ -76,6 +76,7 @@ pushd build
 -skip qtpurchasing \
 -skip qtnetworkauth \
 -skip qt3d \
+-skip qtscript
 -no-feature-cups \
 -no-feature-testlib \
 -no-feature-dbus \
@@ -87,13 +88,11 @@ pushd build
 -qt-pcre \
 -no-pch \
 -ssl \
--kms \
 -evdev \
 -system-freetype \
 -fontconfig \
 -glib \
 -prefix /opt/Qt${QT_MAJOR_VERSION}.${QT_MINOR_VERSION} \
--no-feature-eglfs_brcm \
 -qpa eglfs || exit 1
 
 ls -a
