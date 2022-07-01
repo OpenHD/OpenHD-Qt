@@ -5,5 +5,5 @@ apt -y install build-essential libfontconfig1-dev libdbus-1-dev libfreetype6-dev
             libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad libgstreamer-plugins-bad1.0-dev gstreamer1.0-pulseaudio gstreamer1.0-tools gstreamer1.0-alsa \
             ruby-dev libdrm-dev libxcb-xfixes0-dev || exit 1
 
-
+rpi-update
 gem install fpm
