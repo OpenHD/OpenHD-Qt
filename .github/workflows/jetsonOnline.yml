@@ -16,11 +16,9 @@ jobs:
     - name: Clean up
       run: |
         # only enable when needed, messes up everything
-        echo "fuck it up sorry"
-        cd ../../
-        rm -rf *
-        # rm -rf "${{ github.workspace }}"
-        exit
+        # cd ../../
+        # rm -rf *
+        # exit
 
     - uses: actions/checkout@v2
       with:
