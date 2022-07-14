@@ -16,11 +16,10 @@ jobs:
     - name: Clean up
       run: |
         # only enable when needed, messes up everything
-        echo "Cleaning up previous run"
-        apt install tree
-        pwd
-        tree ../../
+        echo "fuck it up sorry"
+        rm -Rf ../../
         # rm -rf "${{ github.workspace }}"
+        exit
 
     - uses: actions/checkout@v2
       with:
