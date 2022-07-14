@@ -15,7 +15,7 @@ jobs:
    
     - name: Clean up
       run: |
-        only enable when needed, messes up everything
+        # only enable when needed, messes up everything
         echo "Cleaning up previous run"
         apt install tree
         pwd
