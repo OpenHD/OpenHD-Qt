@@ -36,7 +36,6 @@ jobs:
         image_additional_mb: 4000
         copy_repository_path: /opt
         copy_artifact_path: qt-raspberrypi
-        import_github_env: true
         commands: |
           ls -a
           cd qt-raspberrypi
