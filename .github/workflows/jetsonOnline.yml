@@ -1,0 +1,65 @@
+name: Build Jetson ONLINE
+
+on: [push]
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    runs-on: [self-hosted, linux, X64]
+    env:
+      CLOUDSMITH_API_KEY: ${{ secrets.CLOUDSMITH_API_KEY }}
+    steps:
+   
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+        
+    - name: Install packages
+      run: sudo apt-get install -y sudo udev gdisk
+    
+    - name: Emulating Jetson
+      id: qemu
+      uses: pguyot/arm-runner-action@1be4bc9de8a7ba3c1c4f5bf917c438e8dc97904b
+      with:
+        base_image: https://developer.nvidia.com/embedded/l4t/r32_release_v7.1/jp_4.6.1_b110_sd_card/jeston_nano/jetson-nano-jp461-sd-card-image.zip
+        cpu: cortex-a53
+        bootpartition:
+        rootpartition: 1
+        image_additional_mb: 4000
+        copy_repository_path: /opt
+        copy_artifact_path: Open.HD
+        import_github_env: true
+        commands: |
+          ls -a
+       sudo bash install_dep.sh
+       sudo apt update
+       ./build.sh jetson-nano-bionic |& tee >(ts "%d-%m-%y %H_%M_%S" > build.log)       
+       sudo ./package.sh jetson-nano bionic
+       ls -a
+          
+
+    - name: Upload to Github
+      uses: 'actions/upload-artifact@v2'
+      with:
+        name: "Open.HD-QT"
+        path: |
+          *.deb
+          *.log
+
+    - name: Push
+      id: push
+      uses: cloudsmith-io/action@master
+      with:
+        api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
+        command: "push"
+        format: "deb"
+        owner: "openhd"
+        repo: "openhd-2-1-alpha"
+        distro: "ubuntu"
+        release: "bionic"
+        republish: "true" # needed ONLY if version is not changing
+        file: "*.deb"        
+  
