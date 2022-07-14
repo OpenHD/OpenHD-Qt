@@ -19,7 +19,6 @@ jobs:
         
     - name: Install packages
       run: sudo apt-get install -y sudo udev gdisk
-    
     - name: Emulating Jetson
       id: qemu
       uses: pguyot/arm-runner-action@1be4bc9de8a7ba3c1c4f5bf917c438e8dc97904b
@@ -34,11 +33,11 @@ jobs:
         import_github_env: true
         commands: |
           ls -a
-       sudo bash install_dep.sh
-       sudo apt update
-       ./build.sh jetson-nano-bionic |& tee >(ts "%d-%m-%y %H_%M_%S" > build.log)       
-       sudo ./package.sh jetson-nano bionic
-       ls -a
+          sudo bash install_dep.sh
+          sudo apt update
+          ./build.sh jetson-nano-bionic |& tee >(ts "%d-%m-%y %H_%M_%S" > build.log)       
+          sudo ./package.sh jetson-nano bionic
+          ls -a
           
 
     - name: Upload to Github
