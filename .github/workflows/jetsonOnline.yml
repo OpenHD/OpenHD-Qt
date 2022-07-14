@@ -19,7 +19,9 @@ jobs:
         # cd ../../
         # rm -rf *
         # exit
-
+        cd /home/actions/temp/arm-runner/mnt
+        rm -Rf *
+        
     - uses: actions/checkout@v2
       with:
         submodules: recursive
