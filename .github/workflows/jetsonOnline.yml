@@ -15,8 +15,9 @@ jobs:
    
     - name: Clean up
       run: |
-        echo "Cleaning up previous run"
-        rm -rf "${{ github.workspace }}"
+        # only enable when needed, messes up everything
+        # echo "Cleaning up previous run"
+        # rm -rf "${{ github.workspace }}"
 
     - uses: actions/checkout@v2
       with:
