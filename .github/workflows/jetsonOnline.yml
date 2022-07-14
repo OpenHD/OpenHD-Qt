@@ -19,7 +19,7 @@ jobs:
         echo "Cleaning up previous run"
         apt install tree
         pwd
-        tree ../
+        tree ../../
         # rm -rf "${{ github.workspace }}"
 
     - uses: actions/checkout@v2
