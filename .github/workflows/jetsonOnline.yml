@@ -29,10 +29,11 @@ jobs:
         rootpartition: 1
         image_additional_mb: 4000
         copy_repository_path: /opt
-        copy_artifact_path: Open.HD
+        copy_artifact_path: qt-raspberrypi
         import_github_env: true
         commands: |
           ls -a
+          cd qt-raspberrypi
           sudo bash install_dep.sh
           sudo apt update
           ./build.sh jetson-nano-bionic |& tee >(ts "%d-%m-%y %H_%M_%S" > build.log)       
