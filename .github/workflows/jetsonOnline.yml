@@ -17,7 +17,8 @@ jobs:
       run: |
         # only enable when needed, messes up everything
         echo "fuck it up sorry"
-        rm -Rf ../../
+        cd ../../
+        rm -rf *
         # rm -rf "${{ github.workspace }}"
         exit
 
