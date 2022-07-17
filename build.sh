@@ -64,7 +64,6 @@ pushd build
 ../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/configure -v -platform ${PLATFORM} \
 -v \
 -opengl es2 -eglfs \
--no-gtk \
 -opensource -confirm-license -release \
 -reduce-exports \
 -force-pkg-config \
@@ -82,8 +81,6 @@ pushd build
 -no-feature-vnc \
 -no-compile-examples \
 -no-feature-geoservices_mapboxgl \
--no-feature-xlib \
--no-xcb \
 -qt-pcre \
 -no-pch \
 -ssl \
