@@ -44,7 +44,7 @@ tar xf qt-everywhere-opensource-src-5.15.4.tar.xz || exit 1
 if [ "$TYPE" == "pi-bullseye" ]; then
 
         if [ ! -f qt-raspberrypi-configuration ]; then
-            git clone https://github.com/oniongarlic/qt-raspberrypi-configuration.git
+            git clone https://github.com/OpenHD/qt-raspberrypi-configuration.git
         fi
 elif [ "$TYPE" == "jetson-nano" ]; then
          if [ ! -f qt-raspberrypi-configuration ]; then
