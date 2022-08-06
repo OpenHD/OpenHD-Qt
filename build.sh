@@ -12,7 +12,7 @@ fi
 
 
 if [ "$TYPE" == "pi-bullseye-legacy" ]; then
-    PLATFORM="linux-rpi2-g++"
+    PLATFORM="linux-rpi-vc4-g++"
     SSL_ARGS="-openssl"
 elif [ "$TYPE" == "jetson-nano-bionic" ]; then
     PLATFORM="linux-jetson-nano-g++"
