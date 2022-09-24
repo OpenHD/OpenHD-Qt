@@ -16,6 +16,12 @@ if [[ "${PLATFORM}" == "jetson-nano" ]]; then
     PACKAGE_ARCH="arm64"
 fi
 
+if [[ "${PLATFORM}" == "x86" ]]; then
+    OS="ubuntu"
+    ARCH="amd64"
+    PACKAGE_ARCH="amd64"
+fi
+
 if [ "${BUILD_TYPE}" == "docker" ]; then
     cat << EOF > /etc/resolv.conf
 options rotate
