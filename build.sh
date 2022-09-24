@@ -12,14 +12,18 @@ fi
 
 
 if [ "$TYPE" == "pi-bullseye" ]; then
+    QTPLATFORM="eglfs"
     PLATFORM="linux-rpi4-v3d-g++"
     SSL_ARGS="-openssl"
 elif [ "$TYPE" == "jetson-nano-bionic" ]; then
+    QTPLATFORM="eglfs"
     PLATFORM="linux-jetson-nano-g++"
     SSL_ARGS="-openssl"
 elif [ "$TYPE" == "x86-focal" ]; then
+    QTPLATFORM="xcb"
     PLATFORM="linux-g++-64"
     SSL_ARGS="-openssl"
+
 fi
 
 PACKAGE_NAME=openhd-qt-${TYPE}
@@ -97,7 +101,7 @@ pushd build
 -glib \
 -prefix /opt/Qt${QT_MAJOR_VERSION}.${QT_MINOR_VERSION} \
 -no-feature-eglfs_brcm \
--qpa eglfs || exit 1
+-qpa ${QTPLATFORM} || exit 1
 
 ls -a
 sed -i '309 i #elif defined(__ARM_ARCH_8A__)' ../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/qtscript/src/3rdparty/javascriptcore/JavaScriptCore/wtf/Platform.h
