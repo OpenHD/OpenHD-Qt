@@ -17,7 +17,7 @@ if [ "$TYPE" == "pi-bullseye" ]; then
 elif [ "$TYPE" == "jetson-nano-bionic" ]; then
     PLATFORM="linux-jetson-nano-g++"
     SSL_ARGS="-openssl"
-elif [ "$TYPE" == "x86" ]; then
+elif [ "$TYPE" == "x86-focal" ]; then
     PLATFORM="linux-g++-64"
     SSL_ARGS="-openssl"
 fi
@@ -44,14 +44,17 @@ if [ -d qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION} ]; then
 fi
 
 tar xf qt-everywhere-opensource-src-5.15.4.tar.xz || exit 1
+            RENDER=opengl
 if [ "$TYPE" == "pi-bullseye" ]; then
 
         if [ ! -f qt-raspberrypi-configuration ]; then
             git clone https://github.com/oniongarlic/qt-raspberrypi-configuration.git
+            RENDER=opengl es2
         fi
 elif [ "$TYPE" == "jetson-nano" ]; then
          if [ ! -f qt-raspberrypi-configuration ]; then
             git clone https://github.com/OpenHD/qt-raspberrypi-configuration.git
+            RENDER=opengl es2
         fi
 fi
 pushd qt-raspberrypi-configuration
@@ -66,7 +69,7 @@ pushd build
 
 ../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/configure -v -platform ${PLATFORM} \
 -v \
--opengl es2 -eglfs \
+-${RENDER} -eglfs \
 -opensource -confirm-license -release \
 -reduce-exports \
 -force-pkg-config \
@@ -100,7 +103,7 @@ ls -a
 sed -i '309 i #elif defined(__ARM_ARCH_8A__)' ../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/qtscript/src/3rdparty/javascriptcore/JavaScriptCore/wtf/Platform.h
 sed -i '310 i #define WTF_CPU_ARM_TRADITIONAL 1' ../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/qtscript/src/3rdparty/javascriptcore/JavaScriptCore/wtf/Platform.h
 
-make -j2
+make -j12
 
 echo "Build Complete"
 echo "Build Complete"
