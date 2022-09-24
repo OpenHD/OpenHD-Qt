@@ -3,7 +3,7 @@
 Qt builds for OpenHD with all the features we need.
 
 
-Note: this script must be run on a rhe device, it is not crosscompiling.
+Note: this script must be run on a real device, it is not for crosscompiling.
 
 Generally all you need to do to enter an ARM chroot while running on an x86 Linux machine
 is `apt install qemu binfmt-support qemu-user-static`, then `chroot /path/to/imageroot /bin/bash`.
