@@ -21,7 +21,7 @@ elif [ "$TYPE" == "jetson-nano-bionic" ]; then
     SSL_ARGS="-openssl"
 elif [ "$TYPE" == "x86-focal" ]; then
     QTPLATFORM="xcb"
-    PLATFORM="linux-g++-64"
+    PLATFORM="linux-g++"
     SSL_ARGS="-openssl"
 
 fi
@@ -74,13 +74,12 @@ pushd build
 
 ../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/configure -v -platform ${PLATFORM} \
 -v \
--${RENDER} -eglfs \
+-${RENDER} \
 -opensource -confirm-license -release \
 -reduce-exports \
 -force-pkg-config \
 -nomake examples -no-compile-examples -nomake tests \
 -skip qtwebengine \
--skip qtwayland \
 -skip qtxmlpatterns \
 -skip qtsensors \
 -skip qtpurchasing \
@@ -96,7 +95,12 @@ pushd build
 -no-pch \
 -ssl \
 -kms \
+-xcb \
+-xcb-xlib \
+-gtk \
+-gbm \
 -evdev \
+-eglfs \
 -system-freetype \
 -fontconfig \
 -glib \
