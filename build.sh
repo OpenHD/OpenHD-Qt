@@ -45,6 +45,7 @@ echo "Building Qt for ${TYPE} (${PLATFORM})"
 # blow away the old directory to guarantee clean source state
 if [ -d qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION} ]; then
         rm -rf qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}
+        rm -rf *.tar.xz*
 fi
 
 tar xf qt-everywhere-opensource-src-5.15.4.tar.xz || exit 1
