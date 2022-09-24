@@ -13,7 +13,7 @@ fi
 
 if [ "$TYPE" == "pi-bullseye" ]; then
     QTPLATFORM="eglfs"
-    PLATFORM="linux-rpi4-v3d-g++"
+    PLATFORM="linux-rpi-vc4-g++"
     SSL_ARGS="-openssl"
 elif [ "$TYPE" == "jetson-nano-bionic" ]; then
     QTPLATFORM="eglfs"
