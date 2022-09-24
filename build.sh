@@ -48,17 +48,17 @@ if [ -d qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION} ]; then
 fi
 
 tar xf qt-everywhere-opensource-src-5.15.4.tar.xz || exit 1
-            RENDER=opengl desktop
+            RENDER="opengl desktop"
 if [ "$TYPE" == "pi-bullseye" ]; then
 
         if [ ! -f qt-raspberrypi-configuration ]; then
             git clone https://github.com/oniongarlic/qt-raspberrypi-configuration.git
-            RENDER=opengl es2
+            RENDER="opengl es2"
         fi
 elif [ "$TYPE" == "jetson-nano" ]; then
          if [ ! -f qt-raspberrypi-configuration ]; then
             git clone https://github.com/OpenHD/qt-raspberrypi-configuration.git
-            RENDER=opengl es2
+            RENDER="opengl es2"
         fi
 fi
 pushd qt-raspberrypi-configuration
