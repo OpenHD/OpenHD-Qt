@@ -17,6 +17,9 @@ if [ "$TYPE" == "pi-bullseye" ]; then
 elif [ "$TYPE" == "jetson-nano-bionic" ]; then
     PLATFORM="linux-jetson-nano-g++"
     SSL_ARGS="-openssl"
+elif [ "$TYPE" == "x86" ]; then
+    PLATFORM="linux-g++-64"
+    SSL_ARGS="-openssl"
 fi
 
 PACKAGE_NAME=openhd-qt-${TYPE}
