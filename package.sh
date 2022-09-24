@@ -43,6 +43,7 @@ fpm -a ${PACKAGE_ARCH} -s dir -t deb -n ${PACKAGE_NAME} -v ${VERSION//v} -C ${PK
   $PLATFORM_CONFIGS \
   -p ${PACKAGE_NAME}_VERSION_ARCH.deb \
   --provides openhd-qt \
+  --after-install after-install.sh \
   $PLATFORM_PACKAGES \
   -d "flite1-dev >= 2.0.0" \
   -d "libasound2 >= 1.1.3" \
