@@ -36,7 +36,7 @@ TMPDIR=/tmp/${PACKAGE_NAME}
 mkdir -p ${TMPDIR}
 
 sudo rm -r ${TMPDIR}/*
-
+rm -rf qt-*
 
 if [ ! -f qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}.tar.xz ]; then
         echo "Download Qt ${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}"
@@ -48,7 +48,6 @@ echo "Building Qt for ${TYPE} (${PLATFORM})"
 # blow away the old directory to guarantee clean source state
 if [ -d qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION} ]; then
         rm -rf qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}
-        rm -rf *.tar.xz*
 fi
 
 tar xf qt-everywhere-opensource-src-5.15.4.tar.xz || exit 1
