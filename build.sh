@@ -13,14 +13,17 @@ fi
 
 if [ "$TYPE" == "pi-bullseye" ]; then
     QTPLATFORM="eglfs"
+    PROCESSES="4"
     PLATFORM="linux-rpi-vc4-g++"
     SSL_ARGS="-openssl"
 elif [ "$TYPE" == "jetson-nano-bionic" ]; then
     QTPLATFORM="eglfs"
+    PROCESSES="4"
     PLATFORM="linux-jetson-nano-g++"
     SSL_ARGS="-openssl"
 elif [ "$TYPE" == "x86-focal" ]; then
     QTPLATFORM="xcb"
+    PROCESSES="12"
     PLATFORM="linux-g++"
     SSL_ARGS="-openssl"
 
@@ -112,7 +115,7 @@ ls -a
 sed -i '309 i #elif defined(__ARM_ARCH_8A__)' ../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/qtscript/src/3rdparty/javascriptcore/JavaScriptCore/wtf/Platform.h
 sed -i '310 i #define WTF_CPU_ARM_TRADITIONAL 1' ../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/qtscript/src/3rdparty/javascriptcore/JavaScriptCore/wtf/Platform.h
 
-make -j12
+make -j${PROCESSES}
 
 echo "Build Complete"
 echo "Build Complete"
