@@ -12,6 +12,9 @@ jobs:
     env:
       CLOUDSMITH_API_KEY: ${{ secrets.CLOUDSMITH_API_KEY }}
     steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
     - name: download older package
       run: |
        wget https://dl.cloudsmith.io/public/openhd/openhd-2-2-evo/deb/raspbian/pool/bullseye/main/o/op/openhd-qt-pi-bullseye-legacy_5.15.4-08070547/openhd-qt-pi-bullseye-legacy_5.15.4-08070547_armhf.deb
@@ -35,7 +38,7 @@ jobs:
        fpm -a armhf -s dir -t deb -n openhd-qt -v ${VERSION} -C ${PKGDIR} \
        $PLATFORM_CONFIGS \
         -p ${PACKAGE_NAME}_VERSION_ARCH.deb \
-        --after-install after-install.sh \
+        --after-install ../after-install.sh \
         --provides openhd-qt \
         $PLATFORM_PACKAGES \
         -d "flite >= 2.0.0" \
