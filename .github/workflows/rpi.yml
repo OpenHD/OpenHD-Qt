@@ -35,7 +35,7 @@ jobs:
        fpm -a armhf -s dir -t deb -n openhd-qt -v ${VERSION} -C ${PKGDIR} \
        $PLATFORM_CONFIGS \
         -p ${PACKAGE_NAME}_VERSION_ARCH.deb \
-        --after-install ../after-install.sh \
+        --after-install after-install.sh \
         --provides openhd-qt \
         $PLATFORM_PACKAGES \
         -d "flite >= 2.0.0" \
