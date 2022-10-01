@@ -25,7 +25,7 @@ jobs:
        rm data.tar.xz
        ls -a
        sudo apt install ruby
-       gem install fpm
+       sudo gem install fpm
     - name: repackage
       run: |
        PACKAGE_NAME=openhd-qt
