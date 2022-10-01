@@ -26,10 +26,11 @@ jobs:
        ls -a
        sudo apt install ruby
        sudo gem install fpm
+       echo $(pwd)
     - name: repackage
       run: |
        PACKAGE_NAME=openhd-qt
-       PKGDIR=$pwd/package
+       PKGDIR=$(pwd)/package
        VERSION=5.15.4-$(date '+%m%d%H%M')-evo
        fpm -a armhf -s dir -t deb -n openhd-qt -v ${VERSION//v} -C ${PKGDIR} \
        $PLATFORM_CONFIGS \
