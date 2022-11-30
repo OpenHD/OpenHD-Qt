@@ -19,7 +19,8 @@ jobs:
       run: |
        ls -a
        sudo apt update
-       sudo ./install_dep.sh
+       chmod +x install_dep.sh
+       ./install_dep.sh
        bash ./build.sh x86-jammy
        sudo ./package.sh x86 jammy
        ls -a
