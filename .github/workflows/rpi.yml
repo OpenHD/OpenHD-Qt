@@ -1,4 +1,4 @@
-name: Build RPI
+name: repackage
 
 on: [push]
 
@@ -17,10 +17,10 @@ jobs:
         submodules: recursive
     - name: download older package
       run: |
-       wget https://dl.cloudsmith.io/public/openhd/openhd-2-2-evo/deb/raspbian/pool/bullseye/main/o/op/openhd-qt-pi-bullseye-legacy_5.15.4-08070547/openhd-qt-pi-bullseye-legacy_5.15.4-08070547_armhf.deb
+       wget https://dl.cloudsmith.io/public/openhd/openhd-2-2-evo/deb/raspbian/pool/bullseye/main/o/op/openhd-qt-x86-jammy_5.15.4-11300412/openhd-qt-x86-jammy_5.15.4-11300412_amd64.deb
        sudo apt install binutils
-       ar vx openhd-qt-pi-bullseye-legacy_5.15.4-08070547_armhf.deb
-       rm openhd-qt-pi-bullseye-legacy_5.15.4-08070547_armhf.deb
+       ar vx openhd-qt*
+       rm openhd-qt*
        ls -a
        mkdir package
        cd package
@@ -35,10 +35,10 @@ jobs:
       run: |
        PACKAGE_NAME=openhd-qt
        PKGDIR=$(pwd)/package
-       VERSION=5.15.4-$(date '+%m%d%H%M')-evo
-       fpm -a armhf -s dir -t deb -n openhd-qt -v ${VERSION} -C ${PKGDIR} \
+       VERSION=5.15.7-$(date '+%m%d%H%M')-evo
+       fpm -a x86_64 -s dir -t deb -n openhd-qt -v ${VERSION} -C ${PKGDIR} \
        $PLATFORM_CONFIGS \
-        -p ${PACKAGE_NAME}_VERSION_ARCH.deb \
+        -p ${PACKAGE_NAME}_VERSION.deb \
         --after-install after-install.sh \
         --provides openhd-qt \
         $PLATFORM_PACKAGES \
@@ -89,8 +89,8 @@ jobs:
         format: "deb"
         owner: "openhd"
         repo: "openhd-2-2-evo"
-        distro: "raspbian"
-        release: "bullseye"
+        distro: "ubuntu"
+        release: "jammy"
         republish: "true" # needed ONLY if version is not changing
         file: "*.deb"
         
