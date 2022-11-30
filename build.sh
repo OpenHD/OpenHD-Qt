@@ -26,6 +26,11 @@ elif [ "$TYPE" == "x86-focal" ]; then
     PROCESSES="12"
     PLATFORM="linux-g++"
     SSL_ARGS="-openssl"
+elif [ "$TYPE" == "x86-jammy" ]; then
+    QTPLATFORM="xcb"
+    PROCESSES="12"
+    PLATFORM="linux-g++"
+    SSL_ARGS="-openssl"
 
 fi
 
