@@ -24,9 +24,9 @@ jobs:
        ls -a
        mkdir package
        cd package
-       mv ../data.tar.xz ./data.tar.xz
-       tar -xf data.tar.xz
-       rm data.tar.xz
+       mv ../data.tar.gz ./data.tar.gz
+       tar -xvzf data.tar.gz
+       rm data.tar.gz
        ls -a
        sudo apt install ruby
        sudo gem install fpm
