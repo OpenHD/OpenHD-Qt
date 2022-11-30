@@ -20,6 +20,7 @@ jobs:
        ls -a
        sudo apt update
        chmod +x install_dep.sh
+       sudo apt install -y libdrm-dev libdrm libdrm-amdgpu1 libdrm-nouveau2 libdrm-radeon1
        sudo ./install_dep.sh
        bash ./build.sh x86-jammy
        sudo ./package.sh x86 jammy
