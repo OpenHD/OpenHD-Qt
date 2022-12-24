@@ -22,6 +22,12 @@ if [[ "${PLATFORM}" == "x86" ]]; then
     PACKAGE_ARCH="amd64"
 fi
 
+if [[ "${PLATFORM}" == "RK3566" ]]; then
+    OS="ubuntu"
+    ARCH="arm64"
+    PACKAGE_ARCH="arm64"
+fi
+
 if [ "${BUILD_TYPE}" == "docker" ]; then
     cat << EOF > /etc/resolv.conf
 options rotate
@@ -35,7 +41,7 @@ PACKAGE_NAME=openhd-qt-${PLATFORM}-${DISTRO}
 
 PKGDIR=/tmp/${PACKAGE_NAME}
 
-VERSION=5.15.4-$(date '+%m%d%H%M')
+VERSION=5.15.7-$(date '+%m%d%H%M')
 
 rm ${PACKAGE_NAME}_${VERSION//v}_${PACKAGE_ARCH}.deb > /dev/null 2>&1
 
