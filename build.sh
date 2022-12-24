@@ -24,7 +24,7 @@ elif [ "$TYPE" == "jetson-nano-bionic" ]; then
 elif [ "$TYPE" == "RK3566" ]; then
     QTPLATFORM="eglfs"
     PROCESSES="4"
-    PLATFORM="linux-jetson-nano-g++"
+    PLATFORM="linux-RK3566-g++"
     SSL_ARGS="-openssl"
 elif [ "$TYPE" == "x86-focal" ]; then
     QTPLATFORM="xcb"
@@ -62,14 +62,9 @@ fi
 
 tar xf qt-everywhere-opensource-src-5.15.7.tar.xz || exit 1
             RENDER="opengl desktop"
-if [ "$TYPE" == "pi-bullseye" ]; then
+if [ "$TYPE" == "pi-bullseye" ] || [ "$TYPE" == "jetson-nano" ] || [ "$TYPE" == "RK3566" ]; then
 
         if [ ! -f qt-raspberrypi-configuration ]; then
-            git clone https://github.com/OpenHD/qt-raspberrypi-configuration.git
-            RENDER="opengl es2"
-        fi
-elif [ "$TYPE" == "jetson-nano" ]; then
-         if [ ! -f qt-raspberrypi-configuration ]; then
             git clone https://github.com/OpenHD/qt-raspberrypi-configuration.git
             RENDER="opengl es2"
         fi
