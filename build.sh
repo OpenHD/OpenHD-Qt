@@ -21,6 +21,11 @@ elif [ "$TYPE" == "jetson-nano-bionic" ]; then
     PROCESSES="4"
     PLATFORM="linux-jetson-nano-g++"
     SSL_ARGS="-openssl"
+elif [ "$TYPE" == "RK3566" ]; then
+    QTPLATFORM="eglfs"
+    PROCESSES="4"
+    PLATFORM="linux-RK3566-g++"
+    SSL_ARGS="-openssl"
 elif [ "$TYPE" == "x86-focal" ]; then
     QTPLATFORM="xcb"
     PROCESSES="12"
