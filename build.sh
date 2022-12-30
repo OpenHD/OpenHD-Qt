@@ -64,12 +64,12 @@ tar xf qt-everywhere-opensource-src-5.15.7.tar.xz || exit 1
             RENDER="opengl desktop"
 if [ "$TYPE" == "pi-bullseye" ] || [ "$TYPE" == "jetson-nano" ] || [ "$TYPE" == "RK3566" ]; then
 
-        if [ ! -f qt-raspberrypi-configuration ]; then
-            git clone https://github.com/OpenHD/qt-raspberrypi-configuration.git
+        if [ ! -f qt-device-configuration ]; then
+            git clone https://github.com/OpenHD/qt-device-configuration.git
             RENDER="opengl es2"
         fi
 fi
-pushd qt-raspberrypi-configuration
+pushd qt-device-configuration
 make install DESTDIR=../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}
 popd
 
