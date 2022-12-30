@@ -97,8 +97,6 @@ if [ "$TYPE" != "x86-jammy" ] && [ "$TYPE" != "x86-focal" ]; then
 -skip qtpurchasing \
 -skip qtnetworkauth \
 -skip qt3d \
--skip qtdesigner \
--skip qtcreator \
 -no-feature-cups \
 -no-feature-testlib \
 -no-feature-dbus \
