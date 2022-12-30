@@ -83,6 +83,42 @@ mkdir -p build
 
 pushd build
 
+if [ "$TYPE" != "x86-jammy" ] && [ "$TYPE" != "x86-focal" ]; then
+../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/configure -v -platform ${PLATFORM} \
+-v \
+-${RENDER} \
+-opensource -confirm-license -release \
+-reduce-exports \
+-force-pkg-config \
+-nomake examples -no-compile-examples -nomake tests \
+-skip qtwebengine \
+-skip qtxmlpatterns \
+-skip qtsensors \
+-skip qtpurchasing \
+-skip qtnetworkauth \
+-skip qt3d \
+-skip qtdesigner \
+-skip qtcreator \
+-no-feature-cups \
+-no-feature-testlib \
+-no-feature-dbus \
+-no-feature-vnc \
+-no-compile-examples \
+-no-feature-geoservices_mapboxgl \
+-qt-pcre \
+-no-pch \
+-ssl \
+-kms \
+-gbm \
+-evdev \
+-eglfs \
+-system-freetype \
+-fontconfig \
+-glib \
+-prefix /opt/Qt${QT_MAJOR_VERSION}.${QT_MINOR_VERSION} \
+-no-feature-eglfs_brcm \
+-qpa ${QTPLATFORM} || exit 1
+else
 ../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/configure -v -platform ${PLATFORM} \
 -v \
 -${RENDER} \
@@ -107,6 +143,9 @@ pushd build
 -ssl \
 -kms \
 -gbm \
+-xcb \
+-xcb-xlib \
+-gtk \
 -evdev \
 -eglfs \
 -system-freetype \
@@ -115,6 +154,9 @@ pushd build
 -prefix /opt/Qt${QT_MAJOR_VERSION}.${QT_MINOR_VERSION} \
 -no-feature-eglfs_brcm \
 -qpa ${QTPLATFORM} || exit 1
+
+fi
+
 
 ls -a
 sed -i '309 i #elif defined(__ARM_ARCH_8A__)' ../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/qtscript/src/3rdparty/javascriptcore/JavaScriptCore/wtf/Platform.h
