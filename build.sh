@@ -25,6 +25,10 @@ elif [ "$TYPE" == "RK3566" ]; then
     QTPLATFORM="eglfs"
     PROCESSES="4"
     PLATFORM="linux-RK3566-g++"
+    export QT_QPA_EGLFS_INTEGRATION=EGLFS_KMS #in minimal ubuntu, use eglfs_kms.
+    export QT_QPA_EGLFS_KMS_ATOMIC=1  #use drm atomic api or legacy api(two different)
+
+export QTWEBENGINE_CHROMIUM_FLAGS="--no-sandbox --ignore-gpu-blacklist"
     SSL_ARGS="-openssl"
 elif [ "$TYPE" == "x86-focal" ]; then
     QTPLATFORM="xcb"
