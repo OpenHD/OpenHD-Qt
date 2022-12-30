@@ -106,9 +106,6 @@ pushd build
 -no-pch \
 -ssl \
 -kms \
--xcb \
--xcb-xlib \
--gtk \
 -gbm \
 -evdev \
 -eglfs \
