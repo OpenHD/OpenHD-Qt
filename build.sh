@@ -83,10 +83,13 @@ mkdir -p build
 
 pushd build
 
+##first I want to know which modules are possible
+../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/configure -list-features
+##now we build
 if [ "$TYPE" != "x86-jammy" ] && [ "$TYPE" != "x86-focal" ]; then
 ../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/configure -v -platform ${PLATFORM} \
 -v \
--${RENDER} \
+-opengl dynamic \
 -opensource -confirm-license -release \
 -reduce-exports \
 -force-pkg-config \
