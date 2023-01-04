@@ -25,6 +25,7 @@ jobs:
        bash ./build.sh x86-jammy
        sudo ./package.sh x86 jammy
        ls -a
+       ls -a /tmp
 
     - name: Upload to Github
       uses: 'actions/upload-artifact@v2'
