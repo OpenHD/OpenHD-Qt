@@ -89,7 +89,8 @@ pushd build
 if [ "$TYPE" != "x86-jammy" ] && [ "$TYPE" != "x86-focal" ]; then
 ../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/configure -v -platform ${PLATFORM} \
 -v \
--opengl dynamic \
+-opengl es2 \
+-opengles3 \
 -opensource -confirm-license -release \
 -reduce-exports \
 -force-pkg-config \
