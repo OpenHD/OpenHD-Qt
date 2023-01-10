@@ -8,24 +8,31 @@ if [[ "${PLATFORM}" == "pi" ]]; then
     OS="raspbian"
     ARCH="arm"
     PACKAGE_ARCH="armhf"
+    PACKAGE_NAME=openhd-qt-${PLATFORM}
+
 fi
 
 if [[ "${PLATFORM}" == "jetson-nano" ]]; then
     OS="ubuntu"
     ARCH="arm64"
     PACKAGE_ARCH="arm64"
+    PACKAGE_NAME=openhd-qt-${PLATFORM}
+
 fi
 
 if [[ "${PLATFORM}" == "x86" ]]; then
     OS="ubuntu"
     ARCH="amd64"
     PACKAGE_ARCH="amd64"
+    PACKAGE_NAME=openhd-qt-${PLATFORM}-${DISTRO}
 fi
 
 if [[ "${PLATFORM}" == "RK3566" ]]; then
     OS="ubuntu"
     ARCH="arm64"
     PACKAGE_ARCH="arm64"
+    PACKAGE_NAME=openhd-qt-${PLATFORM}
+
 fi
 
 if [ "${BUILD_TYPE}" == "docker" ]; then
@@ -36,8 +43,6 @@ nameserver 8.8.8.8
 nameserver 8.8.4.4
 EOF
 fi
-
-PACKAGE_NAME=openhd-qt-${PLATFORM}
 
 PKGDIR=/tmp/${PACKAGE_NAME}
 
