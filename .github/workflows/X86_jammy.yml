@@ -19,6 +19,9 @@ jobs:
       run: |
        ls -a
        sudo apt update
+       sudo apt upgrade -y
+       sudo apt remove libunwind-13-dev 
+       sudo apt install -y libunwind-dev libgstreamer-plugins-base1.0-dev       
        chmod +x install_dep.sh
        sudo apt install -y libdrm-dev libdrm-amdgpu1 libdrm-nouveau2 libdrm-radeon1
        sudo ./install_dep.sh
