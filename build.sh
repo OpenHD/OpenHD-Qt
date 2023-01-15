@@ -110,6 +110,7 @@ if [ "$TYPE" != "x86-jammy" ] && [ "$TYPE" != "x86-focal" ]; then
 -qt-pcre \
 -no-pch \
 -ssl \
+-openssl-linked \
 -kms \
 -gbm \
 -evdev \
