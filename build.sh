@@ -6,7 +6,7 @@ QT_MINOR_VERSION=7
 TYPE=$1
 
 if [ "$TYPE" == "" ]; then
-    echo "Missing build type: pi-bullseye, jetson-nano-bionic"
+    echo "Missing build type: pi-bullseye, jetson-nano-bionic, ..."
     exit 1
 fi
 
