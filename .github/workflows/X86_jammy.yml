@@ -19,6 +19,7 @@ jobs:
        mkdir -p newpack oldpack/DEBIAN
        dpkg-deb -x openhd-qt-x86-jammy_5.15.7-01152350_amd64.deb oldpack/
        cd oldpack/DEBIAN
+       ls
        rm control
        wget https://geekymind.de/control
        cd ..
