@@ -20,8 +20,8 @@ jobs:
        dpkg-deb -x openhd-qt-x86-jammy_5.15.7-01152350_amd64.deb oldpack/
        cd oldpack/DEBIAN
        ls -a
-       #rm control
        wget https://geekymind.de/control
+       ls -a
        cd ..
        dpkg-deb -Z xz -b oldpack/ newpack/
        cd newpack
