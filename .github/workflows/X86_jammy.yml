@@ -16,8 +16,9 @@ jobs:
       run: |
        echo "hello world"
        wget https://dl.cloudsmith.io/public/openhd/openhd-2-3-evo/deb/ubuntu/pool/jammy/main/o/op/openhd-qt-x86-jammy_5.15.7-01152350/openhd-qt-x86-jammy_5.15.7-01152350_amd64.deb
+       ls -a
        mkdir -p newpack oldpack/DEBIAN
-       dpkg-deb -x openhd-qt-x86-jammy_5.15.7-01152350_amd64.deb oldpack/
+       dpkg-deb -x *.deb oldpack/
        cd oldpack/DEBIAN
        ls
        rm control
