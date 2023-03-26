@@ -19,6 +19,7 @@ jobs:
        mkdir -p newpack oldpack/DEBIAN
        dpkg-deb -x openhd-qt-x86-jammy_5.15.7-01152350_amd64.deb oldpack/
        dpkg-deb -e openhd-qt-x86-jammy_5.15.7-01152350_amd64.deb oldpack/DEBIAN
+       rm *.deb
        cd oldpack/DEBIAN
        ls -a
        rm control
@@ -26,6 +27,7 @@ jobs:
        ls -a
        cd ../../
        dpkg-deb -Z xz -b oldpack/
+       mv oldpack.deb openhd-qt_5.15.7-01152350_amd64.deb
        ls -a
        
     - name: Upload to Github
