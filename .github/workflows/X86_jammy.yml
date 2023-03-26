@@ -28,13 +28,13 @@ jobs:
        ls
        cp * ../
        
-     - name: Upload to Github
-       uses: 'actions/upload-artifact@v2'
-       with:
-         name: "Open.HD-QT"
-         path: |
-           *.deb
-           *.log
+    - name: Upload to Github
+      uses: 'actions/upload-artifact@v2'
+      with:
+        name: "Open.HD-QT"
+        path: |
+          *.deb
+          *.log
 
     # - name: Push
     #   id: push
