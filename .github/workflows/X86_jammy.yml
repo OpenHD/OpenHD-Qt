@@ -16,22 +16,25 @@ jobs:
       run: |
        echo "hello world"
        wget https://dl.cloudsmith.io/public/openhd/openhd-2-3-evo/deb/ubuntu/pool/jammy/main/o/op/openhd-qt-x86-jammy_5.15.7-01152350/openhd-qt-x86-jammy_5.15.7-01152350_amd64.deb
-       sudo apt install binutils
-       ar vx openhd-qt-x86-jammy_5.15.7-01152350_amd64.deb
-       echo "init"
-       ls -a
-       echo "test"
-       cd debian-binary
-       ls -a
+       mkdir -p newpack oldpack/DEBIAN
+       dpkg-deb -x openhd-qt-x86-jammy_5.15.7-01152350/openhd-qt-x86-jammy_5.15.7-01152350_amd64.deb oldpack/
        tree
+       cd oldpack/DEBIAN
+       rm control
+       wget https://geekymind.de/control
+       cd ..
+       dpkg-deb -Z xz -b oldpack/ newpack/
+       cd newpack
+       ls
+       cp * ../
        
-    # - name: Upload to Github
-    #   uses: 'actions/upload-artifact@v2'
-    #   with:
-    #     name: "Open.HD-QT"
-    #     path: |
-    #       *.deb
-    #       *.log
+     - name: Upload to Github
+       uses: 'actions/upload-artifact@v2'
+       with:
+         name: "Open.HD-QT"
+         path: |
+           *.deb
+           *.log
 
     # - name: Push
     #   id: push
