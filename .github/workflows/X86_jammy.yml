@@ -18,15 +18,15 @@ jobs:
        ls -a
        mkdir -p newpack oldpack/DEBIAN
        dpkg-deb -x openhd-qt-x86-jammy_5.15.7-01152350_amd64.deb oldpack/
+       dpkg-deb -e openhd-qt-x86-jammy_5.15.7-01152350_amd64.deb oldpack/DEBIAN
        cd oldpack/DEBIAN
        ls -a
+       rm control
        wget https://geekymind.de/control
        ls -a
-       cd ..
-       dpkg-deb -Z xz -b oldpack/ newpack/
-       cd newpack
+       cd ../../
+       dpkg-deb -Z xz -b oldpack/
        ls -a
-       cp * ../
        
     - name: Upload to Github
       uses: 'actions/upload-artifact@v2'
