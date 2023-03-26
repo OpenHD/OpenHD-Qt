@@ -38,17 +38,17 @@ jobs:
           *.deb
           *.log
 
-    # - name: Push
-    #   id: push
-    #   uses: cloudsmith-io/action@master
-    #   with:
-    #     api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
-    #     command: "push"
-    #     format: "deb"
-    #     owner: "openhd"
-    #     repo: "openhd-2-3-evo"
-    #     distro: "ubuntu"
-    #     release: "jammy"
-    #     republish: "true" # needed ONLY if version is not changing
-    #     file: "*.deb"        
+    - name: Push
+      id: push
+      uses: cloudsmith-io/action@master
+      with:
+        api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
+        command: "push"
+        format: "deb"
+        owner: "openhd"
+        repo: "openhd-2-3-evo"
+        distro: "ubuntu"
+        release: "jammy"
+        republish: "true" # needed ONLY if version is not changing
+        file: "*.deb"        
   
