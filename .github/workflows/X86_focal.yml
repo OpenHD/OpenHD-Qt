@@ -1,0 +1,54 @@
+name: Build X86 Focal
+
+on: [push]
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+
+    runs-on: ubuntu-20.04
+    env:
+      CLOUDSMITH_API_KEY: ${{ secrets.CLOUDSMITH_API_KEY }}
+    steps:
+    - name: build qt
+      run: |
+       wget https://dl.cloudsmith.io/public/openhd/openhd-2-3-evo/deb/ubuntu/pool/focal/main/o/op/openhd-qt-x86-focal_5.15.4-09250041/openhd-qt-x86-focal_5.15.4-09250041_amd64.deb
+       ls -a
+       mkdir -p newpack oldpack/DEBIAN
+       dpkg-deb -x openhd-qt-x86-focal_5.15.4-09250041_amd64.deb oldpack/
+       dpkg-deb -e openhd-qt-x86-focal_5.15.4-09250041_amd64.deb oldpack/DEBIAN
+       rm *.deb
+       cd oldpack/DEBIAN
+       ls -a
+       rm control
+       wget https://geekymind.de/control
+       ls -a
+       cd ../../
+       dpkg-deb -Z xz -b oldpack/
+       mv oldpack.deb openhd-qt_5.15.4-09250041_amd64.deb
+       ls -a
+       
+    - name: Upload to Github
+      uses: 'actions/upload-artifact@v2'
+      with:
+        name: "Open.HD-QT"
+        path: |
+          *.deb
+          *.log
+
+    - name: Push
+      id: push
+      uses: cloudsmith-io/action@master
+      with:
+        api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
+        command: "push"
+        format: "deb"
+        owner: "openhd"
+        repo: "openhd-2-3-evo"
+        distro: "ubuntu"
+        release: "focal"
+        republish: "true" # needed ONLY if version is not changing
+        file: "*.deb"        
+  
