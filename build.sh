@@ -28,7 +28,7 @@ mkdir -p ${TMPDIR}
 sudo rm -r ${TMPDIR}/*
 
 
-if [ ! -f qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}.tar.xz ]; then
+if [ ! -f qt-everywhere-src-*.tar.xz ]; then
         echo "Download Qt ${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}"
         wget -q --show-progress --progress=bar:force:noscroll https://download.qt.io/archive/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz
 fi
@@ -64,6 +64,7 @@ pushd build
 ../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}/configure -v -platform ${PLATFORM} \
 -v \
 -opengl es2 -eglfs \
+-static \
 -opensource -confirm-license -release \
 -reduce-exports \
 -force-pkg-config \
