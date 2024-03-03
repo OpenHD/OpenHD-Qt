@@ -31,7 +31,7 @@ sudo rm -r ${TMPDIR}/*
 if [ ! -f qt-everywhere-src-*.tar.xz ]; then
         echo "Download Qt ${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}"
         wget -q --show-progress --progress=bar:force:noscroll https://download.qt.io/archive/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz
-        tar xf qt-everywhere-src* | pv -pterb -s $(du -sb qt-everywhere-src* | awk '{print $1}') | tar xf - || exit 1
+        pv qt-everywhere-src* | tar -xz || exit 1
 fi
 
 echo "Building Qt for ${TYPE} (${PLATFORM})"
