@@ -1,7 +1,7 @@
 #!/bin/bash
 
-QT_MAJOR_VERSION=5.15
-QT_MINOR_VERSION=4
+QT_MAJOR_VERSION=6.6
+QT_MINOR_VERSION=2
 
 TYPE=$1
 
@@ -30,7 +30,7 @@ sudo rm -r ${TMPDIR}/*
 
 if [ ! -f qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}.tar.xz ]; then
         echo "Download Qt ${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}"
-        wget -q --show-progress --progress=bar:force:noscroll https://download.qt.io/archive/qt/5.15/5.15.4/single/qt-everywhere-opensource-src-5.15.4.tar.xz
+        wget -q --show-progress --progress=bar:force:noscroll https://download.qt.io/archive/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz
 fi
 
 echo "Building Qt for ${TYPE} (${PLATFORM})"
