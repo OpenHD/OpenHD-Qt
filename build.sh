@@ -40,7 +40,7 @@ if [ -d qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION} ]; then
         rm -rf qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}
 fi
 
-tar xf qt-everywhere-src* || exit 1
+tar xfv qt-everywhere-src* || exit 1
 if [ "$TYPE" == "pi-bullseye" ]; then
 
         if [ ! -f qt-raspberrypi-configuration ]; then
