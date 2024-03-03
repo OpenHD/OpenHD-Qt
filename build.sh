@@ -31,16 +31,11 @@ sudo rm -r ${TMPDIR}/*
 if [ ! -f qt-everywhere-src-*.tar.xz ]; then
         echo "Download Qt ${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}"
         wget -q --show-progress --progress=bar:force:noscroll https://download.qt.io/archive/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz
+        tar xfv qt-everywhere-src* || exit 1
 fi
 
 echo "Building Qt for ${TYPE} (${PLATFORM})"
 
-# blow away the old directory to guarantee clean source state
-if [ -d qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION} ]; then
-        rm -rf qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}
-fi
-
-tar xfv qt-everywhere-src* || exit 1
 if [ "$TYPE" == "pi-bullseye" ]; then
 
         if [ ! -f qt-raspberrypi-configuration ]; then
