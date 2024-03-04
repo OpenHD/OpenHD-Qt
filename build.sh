@@ -28,27 +28,13 @@ mkdir -p ${TMPDIR}
 sudo rm -r ${TMPDIR}/*
 
 
-# if [ ! -f qt-everywhere-src-*.tar.xz ]; then
-#         echo "Download Qt ${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}"
-#         wget -q --show-progress --progress=bar:force:noscroll https://download.qt.io/archive/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.zip
-#         7z x qt-everywhere-src-6.6.2.zip || exit 1
-# fi
+if [ ! -f qt-everywhere-src-*.zip ]; then
+        echo "Download Qt ${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}"
+        wget -q --show-progress --progress=bar:force:noscroll https://download.qt.io/archive/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.zip
+        7z x qt-everywhere-src-6.6.2.zip || exit 1
+fi
 
 echo "Building Qt for ${TYPE} (${PLATFORM})"
-
-if [ "$TYPE" == "pi-bullseye" ]; then
-
-        if [ ! -f qt-raspberrypi-configuration ]; then
-            git clone https://github.com/OpenHD/qt-raspberrypi-configuration.git
-        fi
-elif [ "$TYPE" == "jetson-nano" ]; then
-         if [ ! -f qt-raspberrypi-configuration ]; then
-            git clone https://github.com/OpenHD/qt-raspberrypi-configuration.git
-        fi
-fi
-pushd qt-raspberrypi-configuration
-make install DESTDIR=../qt-everywhere-src-${QT_MAJOR_VERSION}.${QT_MINOR_VERSION}
-popd
 
 sudo rm -rf build
 
